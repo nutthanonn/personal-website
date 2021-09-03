@@ -5,7 +5,6 @@ import Form from "./component/form";
 import "./App.css";
 
 const App = () => {
-  const a = 1;
   const [items, setItems] = useState([]);
   const [allMoney, setMoney] = useState(0);
 

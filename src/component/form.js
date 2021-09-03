@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./style.css";
 
@@ -6,6 +6,7 @@ const Form = (props) => {
   const { onAddItem, pushMoney } = props;
   const [name, setName] = useState("");
   const [money, setMoney] = useState(0);
+  const [formValue, setFormValue] = useState(false);
 
   const username = (event) => {
     setName(event.target.value);
@@ -29,6 +30,11 @@ const Form = (props) => {
     setMoney(0);
   };
 
+  useEffect(() => {
+    const checkData = name.trim().length > 0 && money !== 0;
+    setFormValue(checkData);
+  }, [name, money]);
+
   return (
     <div>
       <form onSubmit={submitBtn} className="form-control">
@@ -38,10 +44,10 @@ const Form = (props) => {
         </div>
         <div>
           <label>Money : </label>
-          <input type="number" value={money} onChange={moneySet} />
+          <input type="number" onChange={moneySet} value={money} />
         </div>
         <div>
-          <button type="submit" className="btn">
+          <button type="submit" className="btn" disabled={!formValue}>
             Submit
           </button>
         </div>
