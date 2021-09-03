@@ -6,7 +6,6 @@ const Item = (props) => {
 
   const status = money < 0 ? "expense" : "income";
   const symbol = money < 0 ? "-" : "+";
-  const status = money < 0 ? "expense" : "income";
 
   return (
     <span className="itemli">
