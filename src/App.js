@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Title from "./component/Title";
 import Form from "./component/form";
 import "./App.css";
-import { Button } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 const App = () => {
   const [items, setItems] = useState([]);
@@ -25,12 +25,14 @@ const App = () => {
 
   return (
     <div>
-      <Button color="secondary" size="large" variant="contained">
-        Hello World
-      </Button>
-      <div className="amount">
-        <h1 className={colorAllMoney}>{allMoney}</h1>
-      </div>
+      <Typography
+        variant="h2"
+        className={colorAllMoney}
+        align="center"
+        gutterBottom
+      >
+        {allMoney}
+      </Typography>
       <Form onAddItem={onAddNewItem} pushMoney={pushNewMoney} />
       <Title items={items} />
     </div>

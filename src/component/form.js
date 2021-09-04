@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./style.css";
+import { Button } from "@material-ui/core";
 
 const Form = (props) => {
   const { onAddItem, pushMoney } = props;
@@ -47,9 +48,15 @@ const Form = (props) => {
           <input type="number" onChange={moneySet} value={money} />
         </div>
         <div>
-          <button type="submit" className="btn" disabled={!formValue}>
+          <Button
+            type="submit"
+            disabled={!formValue}
+            variant="contained"
+            size="small"
+            color="primary"
+          >
             Submit
-          </button>
+          </Button>
         </div>
       </form>
     </div>
