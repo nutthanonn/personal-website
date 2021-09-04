@@ -53,7 +53,7 @@ const Form = (props) => {
             disabled={!formValue}
             variant="outlined"
             size="small"
-            color="success"
+            color="primary"
           >
             Submit
           </Button>

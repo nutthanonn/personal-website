@@ -1,8 +1,11 @@
 import PropTypes from "prop-types";
 import "./style.css";
+import DataContext from "../data/DataContext";
+import { useContext } from "react";
 
 const Item = (props) => {
   const { name, money } = props;
+  const MainApp = useContext(DataContext);
 
   const status = money < 0 ? "expense" : "income";
   const symbol = money < 0 ? "-" : "+";
@@ -15,6 +18,7 @@ const Item = (props) => {
           &nbsp;{symbol}
           {Math.abs(money)}
         </span>
+        {MainApp}
       </li>
     </span>
   );
