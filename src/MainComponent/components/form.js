@@ -51,9 +51,9 @@ const Form = (props) => {
           <Button
             type="submit"
             disabled={!formValue}
-            variant="contained"
+            variant="outlined"
             size="small"
-            color="primary"
+            color="success"
           >
             Submit
           </Button>

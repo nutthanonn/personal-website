@@ -1,9 +1,10 @@
 import "./App.css";
 import React, { useState } from "react";
-import Title from "./component/Title";
-import Form from "./component/form";
+import Title from "./components/Title";
+import Form from "./components/form";
 import "./App.css";
-import { Typography } from "@material-ui/core";
+import { Typography, Container } from "@material-ui/core";
+import DataContext from "./data/DataContext";
 
 const App = () => {
   const [items, setItems] = useState([]);
@@ -24,18 +25,20 @@ const App = () => {
   const colorAllMoney = allMoney < 0 ? "negative" : "positive";
 
   return (
-    <div>
-      <Typography
-        variant="h2"
-        className={colorAllMoney}
-        align="center"
-        gutterBottom
-      >
-        {allMoney}
-      </Typography>
-      <Form onAddItem={onAddNewItem} pushMoney={pushNewMoney} />
-      <Title items={items} />
-    </div>
+    <DataContext.Provider value={"Hello"}>
+      <Container>
+        <Typography
+          variant="h2"
+          className={colorAllMoney}
+          align="center"
+          gutterBottom
+        >
+          {allMoney}
+        </Typography>
+        <Form onAddItem={onAddNewItem} pushMoney={pushNewMoney} />
+        <Title items={items} />
+      </Container>
+    </DataContext.Provider>
   );
 };
 
