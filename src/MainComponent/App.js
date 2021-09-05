@@ -25,7 +25,7 @@ const App = () => {
   const colorAllMoney = allMoney < 0 ? "negative" : "positive";
 
   return (
-    <DataContext.Provider value={"Hi"}>
+    <DataContext.Provider value={"hello"}>
       <Container>
         <Typography
           variant="h2"
