@@ -5,6 +5,7 @@ import Form from "./components/form";
 import "./App.css";
 import { Typography, Container } from "@material-ui/core";
 import DataContext from "./data/DataContext";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const App = () => {
   const [items, setItems] = useState([]);
@@ -27,16 +28,34 @@ const App = () => {
   return (
     <DataContext.Provider value={"hello"}>
       <Container>
-        <Typography
-          variant="h2"
-          className={colorAllMoney}
-          align="center"
-          gutterBottom
-        >
-          {allMoney}
-        </Typography>
-        <Form onAddItem={onAddNewItem} pushMoney={pushNewMoney} />
-        <Title items={items} />
+        <Router>
+          <div>
+            <ul className="horizontal-menu">
+              <li>
+                <Link to="/">Form</Link>
+              </li>
+              <li>
+                <Link to="/insert">Data</Link>
+              </li>
+            </ul>
+            <Switch>
+              <Route path="/" exact>
+                <Typography
+                  variant="h2"
+                  className={colorAllMoney}
+                  align="center"
+                  gutterBottom
+                >
+                  {allMoney}
+                </Typography>
+              </Route>
+              <Route path="/insert">
+                <Form onAddItem={onAddNewItem} pushMoney={pushNewMoney} />
+                <Title items={items} />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
       </Container>
     </DataContext.Provider>
   );
