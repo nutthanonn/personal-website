@@ -19,7 +19,6 @@ const Form = (props) => {
 
   const submitBtn = (event) => {
     event.preventDefault();
-    pushMoney(Number(money));
 
     const itemData = {
       id: uuidv4(),
@@ -27,6 +26,7 @@ const Form = (props) => {
       money: Number(money),
     };
     onAddItem(itemData);
+    pushMoney(Number(money));
     setName("");
     setMoney(0);
   };
