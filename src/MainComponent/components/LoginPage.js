@@ -3,38 +3,56 @@ import { useEffect, useState } from "react";
 import NearMeIcon from "@material-ui/icons/NearMe";
 import { Grid, makeStyles } from "@material-ui/core";
 import AccountCircle from "@material-ui/icons/AccountCircle";
+import VpnKeyIcon from "@material-ui/icons/VpnKey";
 
-const useStyles = makeStyles({
+const useStyle = makeStyles({
   btn: {
-    margin: "10px",
+    marginTop: 20,
+    marginLeft: 55,
     "&:hover": {
-      backgroundColor: "#f7f7f7",
+      backgroundColor: "primary",
     },
+  },
+  main: {
+    paddingLeft: 50,
   },
 });
 
 const LoginPage = () => {
-  const classes = useStyles();
+  const classes = useStyle();
   const [user, setUser] = useState("");
+  const [pass, setPass] = useState("");
   const [formCheck, setFormCheck] = useState(false);
+  const [checkUser, setCheckUser] = useState(false);
+  const [checkPassword, setCheckPasssword] = useState(false);
 
   const Username = (event) => {
     setUser(event.target.value);
   };
 
+  const Password = (event) => {
+    setPass(event.target.value);
+  };
+
   const test = (event) => {
     event.preventDefault();
-    console.log(user);
+    console.log("username : " + user);
+    console.log("password : " + pass);
     setUser("");
+    setPass("");
   };
 
   useEffect(() => {
-    const check = user.trim().length > 1;
+    const check = user.trim().length > 1 && pass.length > 1;
+    const userCheck = user.trim().length > 1;
+    const passwordCheck = pass.length > 1;
+    setCheckPasssword(passwordCheck);
+    setCheckUser(userCheck);
     setFormCheck(check);
-  }, [user]);
+  }, [user, pass]);
 
   return (
-    <div>
+    <div className={classes.main}>
       <form noValidate autoComplete="off" onSubmit={test}>
         <div>
           <Grid container spacing={1} alignItems="flex-end">
@@ -48,6 +66,25 @@ const LoginPage = () => {
                 value={user}
                 onChange={Username}
                 color="primary"
+                error={!checkUser}
+              />
+            </Grid>
+          </Grid>
+        </div>
+        <div>
+          <Grid container spacing={1} alignItems="flex-end">
+            <Grid item>
+              <VpnKeyIcon color="primary" />
+            </Grid>
+            <Grid item>
+              <TextField
+                id="input-with-icon-grid"
+                label="Password"
+                value={pass}
+                onChange={Password}
+                color="primary"
+                type="password"
+                error={!checkPassword}
               />
             </Grid>
           </Grid>
@@ -59,6 +96,7 @@ const LoginPage = () => {
           type="submit"
           disabled={!formCheck}
           startIcon={<NearMeIcon />}
+          size="small"
         >
           Submit
         </Button>

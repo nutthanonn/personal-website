@@ -1,13 +1,10 @@
-import { Container, Typography } from "@material-ui/core";
-import LoginPage from "./components/LoginPage";
+import { Container } from "@material-ui/core";
+import CardComponent from "./components/cardComponent";
 
 const App = () => {
   return (
     <Container>
-      <Typography variant="h3" color="primary" gutterBottom>
-        Login
-      </Typography>
-      <LoginPage />
+      <CardComponent />
     </Container>
   );
 };
