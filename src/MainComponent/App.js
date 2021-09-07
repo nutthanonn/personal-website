@@ -5,7 +5,7 @@ const App = () => {
   return (
     <Container>
       <Typography variant="h3" color="primary" gutterBottom>
-        FormPage
+        Login
       </Typography>
       <LoginPage />
     </Container>
