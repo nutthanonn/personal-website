@@ -1,5 +1,6 @@
 import { Button, TextField } from "@material-ui/core";
 import { useEffect, useState } from "react";
+import NearMeIcon from "@material-ui/icons/NearMe";
 
 const LoginPage = () => {
   const [user, setUser] = useState("");
@@ -23,19 +24,22 @@ const LoginPage = () => {
   return (
     <div>
       <form noValidate autoComplete="off" onSubmit={test}>
-        <TextField
-          label="Username"
-          variant="outlined"
-          color="primary"
-          required
-          onChange={Username}
-          value={user}
-        />
+        <div>
+          <TextField
+            label="Username"
+            variant="outlined"
+            color="primary"
+            required
+            onChange={Username}
+            value={user}
+          />
+        </div>
         <Button
           variant="outlined"
           color="primary"
           type="submit"
           disabled={!formCheck}
+          startIcon={<NearMeIcon />}
         >
           Submit
         </Button>
