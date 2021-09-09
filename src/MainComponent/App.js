@@ -1,10 +1,12 @@
 import { Container } from "@material-ui/core";
-import CardComponent from "./components/cardComponent";
+// import CardComponent from "./components/cardComponent";
+import BackToTop from "./components/MainPage";
 
 const App = () => {
   return (
     <Container>
-      <CardComponent />
+      {/* <CardComponent /> */}
+      <BackToTop />
     </Container>
   );
 };
