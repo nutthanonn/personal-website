@@ -1,13 +1,9 @@
-import { Container } from "@material-ui/core";
-// import CardComponent from "./components/cardComponent";
-import BackToTop from "./components/MainPage";
-
+import MainPage from "./mainPageComponent/MainPage";
 const App = () => {
   return (
-    <Container>
-      {/* <CardComponent /> */}
-      <BackToTop />
-    </Container>
+    <div>
+      <MainPage />
+    </div>
   );
 };
 
