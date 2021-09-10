@@ -7,8 +7,9 @@ import {
   createTheme,
   ThemeProvider,
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import React from "react";
 import SchoolIcon from "@material-ui/icons/School";
+import DrowerInApp from "./Drower";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,6 +34,7 @@ const theme = createTheme({
 
 const Appbar = () => {
   const classes = useStyles();
+
   return (
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
@@ -44,14 +46,7 @@ const Appbar = () => {
             <Typography variant="h5" className={classes.title} color="inherit">
               KMUTT LAB
             </Typography>
-            <IconButton
-              edge="start"
-              aria-label="menu"
-              color="inherit"
-              className={classes.menuButton}
-            >
-              <MenuIcon />
-            </IconButton>
+            <DrowerInApp />
           </Toolbar>
         </AppBar>
       </div>
