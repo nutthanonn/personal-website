@@ -21,13 +21,13 @@ const useStyle = makeStyles({
 });
 
 const WeekChild = () => {
-  const testData = [
-    { head: "Lab1", sub: "String" },
-    { head: "Lab2", sub: "ForLoop" },
+  const initData = [
+    { id: "1", head: "Lab1", sub: "String" },
+    { id: "1", head: "Lab2", sub: "ForLoop" },
   ];
 
   const classes = useStyle();
-  const [data, setData] = useState(testData);
+  const [data, setData] = useState(initData);
 
   return (
     <div>
@@ -39,7 +39,7 @@ const WeekChild = () => {
                 <Typography gutterBottom variant="h5">
                   {e.head}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography variant="body2" color="primary" component="p">
                   {e.sub}
                 </Typography>
                 <Typography variant="h6">Hello</Typography>

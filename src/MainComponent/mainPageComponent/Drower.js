@@ -28,7 +28,6 @@ export default function DrowerInApp() {
   const [state, setState] = React.useState({
     right: false,
   });
-
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -38,6 +37,7 @@ export default function DrowerInApp() {
     }
 
     setState({ ...state, [anchor]: open });
+    console.log(state);
   };
 
   const list = (anchor) => (
@@ -72,20 +72,18 @@ export default function DrowerInApp() {
 
   return (
     <div>
-      {["MENU"].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)} endIcon={<MenuIcon />}>
-            {anchor}
-          </Button>
-          <Drawer
-            anchor="right"
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
+      <React.Fragment key="MENU">
+        <Button onClick={toggleDrawer("MENU", true)} endIcon={<MenuIcon />}>
+          MENU
+        </Button>
+        <Drawer
+          anchor="right"
+          open={state["MENU"]}
+          onClose={toggleDrawer("MENU", false)}
+        >
+          {list("MENU")}
+        </Drawer>
+      </React.Fragment>
     </div>
   );
 }
