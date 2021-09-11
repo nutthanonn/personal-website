@@ -5,6 +5,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ContactsIcon from "@material-ui/icons/Contacts";
 import SettingsIcon from "@material-ui/icons/Settings";
+import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import { useState } from "react";
 import {
   makeStyles,
   Drawer,
@@ -14,6 +16,8 @@ import {
   ListItemIcon,
   ListItemText,
   Divider,
+  Typography,
+  Grid,
 } from "@material-ui/core";
 
 const useStyles = makeStyles({
@@ -23,10 +27,15 @@ const useStyles = makeStyles({
   fullList: {
     width: "auto",
   },
+  styleTime: {
+    textAlign: "center",
+    margin: 10,
+  },
 });
 
 export default function DrowerInApp() {
   const classes = useStyles();
+  const [time, setTime] = useState();
   const [state, setState] = React.useState({
     right: false,
   });
@@ -41,6 +50,11 @@ export default function DrowerInApp() {
     setState({ ...state, [anchor]: open });
   };
 
+  setInterval(() => {
+    const currentDate = new Date().toLocaleTimeString();
+    setTime(currentDate);
+  }, 1000);
+
   // Drower
 
   const list = (anchor) => (
@@ -52,6 +66,24 @@ export default function DrowerInApp() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
+      <Grid
+        container
+        spacing={1}
+        alignItems="flex-end"
+        className={classes.styleTime}
+      >
+        <Grid item>
+          <AccessTimeIcon />
+        </Grid>
+        <Grid item>
+          <Typography variant="h6" color="#212121">
+            {time}
+          </Typography>
+        </Grid>
+      </Grid>
+
+      <Divider />
+
       <List>
         <ListItem button key={"Mail"}>
           <ListItemIcon>
@@ -65,11 +97,11 @@ export default function DrowerInApp() {
           </ListItemIcon>
           <ListItemText primary={"Contact"} />
         </ListItem>
-        <ListItem button key={"Seting"}>
+        <ListItem button key={"Setting"}>
           <ListItemIcon>
             <SettingsIcon />
           </ListItemIcon>
-          <ListItemText primary={"Seting"} />
+          <ListItemText primary={"Setting"} />
         </ListItem>
 
         <Divider />
@@ -91,7 +123,7 @@ export default function DrowerInApp() {
           MENU
         </Button>
         <Drawer
-          anchor="right"
+          anchor="left"
           open={state["MENU"]}
           onClose={toggleDrawer("MENU", false)}
         >

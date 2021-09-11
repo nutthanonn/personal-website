@@ -40,13 +40,13 @@ const Appbar = () => {
       <div className={classes.root}>
         <AppBar position="sticky">
           <Toolbar>
+            <Typography className={classes.title} color="inherit">
+              <DrowerInApp />
+            </Typography>
+            <Typography variant="h5">KMUTT LAB</Typography>
             <IconButton>
               <SchoolIcon />
             </IconButton>
-            <Typography variant="h5" className={classes.title} color="inherit">
-              KMUTT LAB
-            </Typography>
-            <DrowerInApp />
           </Toolbar>
         </AppBar>
       </div>

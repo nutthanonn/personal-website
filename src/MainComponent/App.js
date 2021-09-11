@@ -1,5 +1,5 @@
 import { Container } from "@material-ui/core";
-import LoginPage from "./Login/LoginPage";
+// import LoginPage from "./Login/LoginPage";
 
 import MainPage from "./mainPageComponent/MainPage";
 

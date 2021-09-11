@@ -7,7 +7,8 @@ const MainPage = () => {
   const setData = [
     { head: "Lab1", sub: "String" },
     { head: "Lab2", sub: "ForLoop" },
-    { head: "Lab2", sub: "ForLoop" },
+    { head: "Lab3", sub: "WhileLoop" },
+    { head: "Lab4", sub: "SquartThinking" },
   ];
 
   return (
