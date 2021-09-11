@@ -5,7 +5,6 @@ import {
   CardActionArea,
   makeStyles,
 } from "@material-ui/core";
-import { useState } from "react";
 
 const useStyle = makeStyles({
   root: {
@@ -20,34 +19,25 @@ const useStyle = makeStyles({
   },
 });
 
-const WeekChild = () => {
-  const initData = [
-    { id: "1", head: "Lab1", sub: "String" },
-    { id: "1", head: "Lab2", sub: "ForLoop" },
-  ];
-
+const WeekChild = (props) => {
+  const { head, sub } = props;
   const classes = useStyle();
-  const [data, setData] = useState(initData);
 
   return (
     <div>
-      {data.map((e) => {
-        return (
-          <Card className={classes.root}>
-            <CardActionArea>
-              <CardContent>
-                <Typography gutterBottom variant="h5">
-                  {e.head}
-                </Typography>
-                <Typography variant="body2" color="primary" component="p">
-                  {e.sub}
-                </Typography>
-                <Typography variant="h6">Hello</Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        );
-      })}
+      <Card className={classes.root}>
+        <CardActionArea>
+          <CardContent>
+            <Typography gutterBottom variant="h5">
+              {head}
+            </Typography>
+            <Typography variant="body2" color="primary" component="p">
+              {sub}
+            </Typography>
+            <Typography variant="h6">Hello</Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
     </div>
   );
 };

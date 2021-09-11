@@ -2,7 +2,9 @@ import React from "react";
 import clsx from "clsx";
 import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import ContactsIcon from "@material-ui/icons/Contacts";
+import SettingsIcon from "@material-ui/icons/Settings";
 import {
   makeStyles,
   Drawer,
@@ -37,8 +39,9 @@ export default function DrowerInApp() {
     }
 
     setState({ ...state, [anchor]: open });
-    console.log(state);
   };
+
+  // Drower
 
   const list = (anchor) => (
     <div
@@ -50,21 +53,32 @@ export default function DrowerInApp() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Inbox"].map((text) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              <MailIcon />
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-        <Divider />
-        <br />
-        <ListItem button key={"Login"}>
+        <ListItem button key={"Mail"}>
           <ListItemIcon>
-            <AccountCircleIcon />
+            <MailIcon />
           </ListItemIcon>
-          <ListItemText primary={"Login"} />
+          <ListItemText primary={"Mail"} />
+        </ListItem>
+        <ListItem button key={"Contact"}>
+          <ListItemIcon>
+            <ContactsIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Contact"} />
+        </ListItem>
+        <ListItem button key={"Seting"}>
+          <ListItemIcon>
+            <SettingsIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Seting"} />
+        </ListItem>
+
+        <Divider />
+
+        <ListItem button key={"LogOut"}>
+          <ListItemIcon>
+            <ExitToAppIcon />
+          </ListItemIcon>
+          <ListItemText primary={"LogOut"} />
         </ListItem>
       </List>
     </div>

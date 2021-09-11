@@ -38,7 +38,7 @@ const Appbar = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="sticky">
           <Toolbar>
             <IconButton>
               <SchoolIcon />
