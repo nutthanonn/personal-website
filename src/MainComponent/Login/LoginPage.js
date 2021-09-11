@@ -8,13 +8,14 @@ import VpnKeyIcon from "@material-ui/icons/VpnKey";
 const useStyle = makeStyles({
   btn: {
     marginTop: 20,
-    marginLeft: 55,
     "&:hover": {
       backgroundColor: "primary",
     },
   },
-  main: {
-    paddingLeft: 50,
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
 });
 
@@ -52,8 +53,13 @@ const LoginPage = () => {
   }, [user, pass]);
 
   return (
-    <div className={classes.main}>
-      <form noValidate autoComplete="off" onSubmit={test}>
+    <div>
+      <form
+        noValidate
+        autoComplete="off"
+        onSubmit={test}
+        className={classes.root}
+      >
         <div>
           <Grid container spacing={1} alignItems="flex-end">
             <Grid item>
