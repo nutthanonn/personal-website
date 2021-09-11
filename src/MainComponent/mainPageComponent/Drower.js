@@ -5,7 +5,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ContactsIcon from "@material-ui/icons/Contacts";
 import SettingsIcon from "@material-ui/icons/Settings";
-import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import WatchLaterIcon from "@material-ui/icons/WatchLater";
 import { useState } from "react";
 import {
   makeStyles,
@@ -73,7 +73,7 @@ export default function DrowerInApp() {
         className={classes.styleTime}
       >
         <Grid item>
-          <AccessTimeIcon />
+          <WatchLaterIcon />
         </Grid>
         <Grid item>
           <Typography variant="h6" color="#212121">

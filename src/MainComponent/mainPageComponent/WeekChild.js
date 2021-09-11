@@ -4,11 +4,17 @@ import {
   Typography,
   CardActionArea,
   makeStyles,
+  Toolbar,
+  IconButton,
 } from "@material-ui/core";
+import ArrowRightIcon from "@material-ui/icons/ArrowRight";
+import CheckIcon from "@material-ui/icons/Check";
+import CloseIcon from "@material-ui/icons/Close";
 
 const useStyle = makeStyles({
   root: {
     height: 80,
+    marginTop: 20,
     marginBottom: 20,
     "&:hover": {
       backgroundColor: "#e5e5e5",
@@ -28,13 +34,14 @@ const WeekChild = (props) => {
       <Card className={classes.root}>
         <CardActionArea>
           <CardContent>
-            <Typography gutterBottom variant="h5">
-              {head}
-            </Typography>
-            <Typography variant="body2" color="primary" component="p">
-              {sub}
-            </Typography>
-            <Typography variant="h6">Hello</Typography>
+            <Toolbar>
+              <Typography variant="h5" className={classes.test}>
+                {head} <ArrowRightIcon /> {sub}
+              </Typography>
+              {/* <IconButton color="">
+                <CloseIcon />
+              </IconButton> */}
+            </Toolbar>
           </CardContent>
         </CardActionArea>
       </Card>

@@ -5,10 +5,17 @@ import { v4 as uuidv4 } from "uuid";
 
 const MainPage = () => {
   const setData = [
-    { head: "Lab1", sub: "String" },
-    { head: "Lab2", sub: "ForLoop" },
-    { head: "Lab3", sub: "WhileLoop" },
-    { head: "Lab4", sub: "SquartThinking" },
+    { head: "Lab-1", sub: "String" },
+    { head: "Lab-2", sub: "ForLoop" },
+    { head: "Lab-3", sub: "While-loop" },
+    { head: "Lab-4", sub: "Thinking" },
+    { head: "Lab-5", sub: "Random" },
+    { head: "Lab-5", sub: "Random" },
+    { head: "Lab-5", sub: "Random" },
+    { head: "Lab-5", sub: "Random" },
+    { head: "Lab-5", sub: "Random" },
+    { head: "Lab-5", sub: "Random" },
+    { head: "Lab-5", sub: "Random" },
   ];
 
   return (
