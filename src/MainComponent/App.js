@@ -1,9 +1,11 @@
+import LoginPage from "./Login/LoginPage";
 import MainPage from "./MainPageComponent/MainPage";
 
 const App = () => {
   return (
     <div>
-      <MainPage />
+      {/* <MainPage /> */}
+      <LoginPage />
     </div>
   );
 };

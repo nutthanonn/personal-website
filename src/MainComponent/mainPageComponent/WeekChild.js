@@ -7,7 +7,7 @@ import {
   Toolbar,
 } from "@material-ui/core";
 
-import CloseIcon from "@material-ui/icons/Close";
+import EditIcon from "@material-ui/icons/Edit";
 
 const useStyle = makeStyles({
   root: {
@@ -40,7 +40,7 @@ const WeekChild = (props) => {
                 </Typography>
               </Typography>
               <Typography fontSize="small">
-                <CloseIcon fontSize="medium" />
+                <EditIcon />
               </Typography>
             </Toolbar>
           </CardContent>
