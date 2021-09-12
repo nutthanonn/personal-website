@@ -13,9 +13,9 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import SchoolIcon from "@material-ui/icons/School";
-import DrowerInApp from "./Drower";
 import PropTypes from "prop-types";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import DrowerInApp from "./Drower";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,7 +70,7 @@ ScrollTop.propTypes = {
   window: PropTypes.func,
 };
 
-export default function Appbar(props) {
+const AppbarComponent = (props) => {
   const classes = useStyles();
 
   return (
@@ -79,7 +79,11 @@ export default function Appbar(props) {
         <CssBaseline />
         <AppBar>
           <Toolbar>
-            <Typography className={classes.title} color="inherit">
+            <Typography
+              className={classes.title}
+              color="inherit"
+              variant="subtitle1"
+            >
               <DrowerInApp />
             </Typography>
             <Typography variant="h5">KMUTT LAB</Typography>
@@ -90,11 +94,13 @@ export default function Appbar(props) {
         </AppBar>
         <Toolbar id="back-to-top-anchor" />
         <ScrollTop {...props}>
-          <Fab color="primary" size="big" aria-label="scroll back to top">
+          <Fab color="primary" size="large">
             <KeyboardArrowUpIcon />
           </Fab>
         </ScrollTop>
       </React.Fragment>
     </ThemeProvider>
   );
-}
+};
+
+export default AppbarComponent;

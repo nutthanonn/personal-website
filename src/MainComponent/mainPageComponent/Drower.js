@@ -1,10 +1,7 @@
 import React from "react";
 import clsx from "clsx";
-import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import ContactsIcon from "@material-ui/icons/Contacts";
-import SettingsIcon from "@material-ui/icons/Settings";
 import WatchLaterIcon from "@material-ui/icons/WatchLater";
 import { useState } from "react";
 import {
@@ -19,6 +16,9 @@ import {
   Typography,
   Grid,
 } from "@material-ui/core";
+import SettingDrawer from "./DrawerChild/SettingDrawer";
+import ContactDrawer from "./DrawerChild/ContactDrawer";
+import MailDrawer from "./DrawerChild/MailDrawer";
 
 const useStyles = makeStyles({
   list: {
@@ -76,34 +76,16 @@ export default function DrowerInApp() {
           <WatchLaterIcon />
         </Grid>
         <Grid item>
-          <Typography variant="h6" color="#212121">
-            {time}
-          </Typography>
+          <Typography variant="h6">{time}</Typography>
         </Grid>
       </Grid>
 
       <Divider />
 
       <List>
-        <ListItem button key={"Mail"}>
-          <ListItemIcon>
-            <MailIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Mail"} />
-        </ListItem>
-        <ListItem button key={"Contact"}>
-          <ListItemIcon>
-            <ContactsIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Contact"} />
-        </ListItem>
-        <ListItem button key={"Setting"}>
-          <ListItemIcon>
-            <SettingsIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Setting"} />
-        </ListItem>
-
+        <MailDrawer />
+        <ContactDrawer />
+        <SettingDrawer />
         <Divider />
 
         <ListItem button key={"LogOut"}>

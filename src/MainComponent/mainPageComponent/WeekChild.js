@@ -5,10 +5,8 @@ import {
   CardActionArea,
   makeStyles,
   Toolbar,
-  IconButton,
 } from "@material-ui/core";
-import ArrowRightIcon from "@material-ui/icons/ArrowRight";
-import CheckIcon from "@material-ui/icons/Check";
+
 import CloseIcon from "@material-ui/icons/Close";
 
 const useStyle = makeStyles({
@@ -36,11 +34,14 @@ const WeekChild = (props) => {
           <CardContent>
             <Toolbar>
               <Typography variant="h5" className={classes.test}>
-                {head} <ArrowRightIcon /> {sub}
+                {head}
+                <Typography variant="body2" color="textSecondary">
+                  {sub}
+                </Typography>
               </Typography>
-              {/* <IconButton color="">
-                <CloseIcon />
-              </IconButton> */}
+              <Typography fontSize="small">
+                <CloseIcon fontSize="medium" />
+              </Typography>
             </Toolbar>
           </CardContent>
         </CardActionArea>

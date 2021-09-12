@@ -1,7 +1,7 @@
 import { Container } from "@material-ui/core";
-import Appbar from "./Appbar.js";
 import WeekChild from "./WeekChild.js";
 import { v4 as uuidv4 } from "uuid";
+import AppbarComponent from "./AppbarComponent.js";
 
 const MainPage = () => {
   const setData = [
@@ -16,11 +16,15 @@ const MainPage = () => {
     { head: "Lab-5", sub: "Random" },
     { head: "Lab-5", sub: "Random" },
     { head: "Lab-5", sub: "Random" },
+    { head: "Lab-5", sub: "Random" },
+    { head: "Lab-5", sub: "Random" },
+    { head: "Lab-5", sub: "Random" },
+    { head: "Lab-5", sub: "Random" },
   ];
 
   return (
     <div>
-      <Appbar />
+      <AppbarComponent />
       <Container>
         {setData.map((e) => {
           return <WeekChild {...e} key={uuidv4()} />;
