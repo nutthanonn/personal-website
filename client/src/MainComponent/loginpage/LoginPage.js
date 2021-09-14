@@ -4,6 +4,7 @@ import NearMeIcon from "@material-ui/icons/NearMe";
 import { Grid, makeStyles } from "@material-ui/core";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
+import axios from "axios";
 
 const useStyle = makeStyles({
   btn: {
@@ -23,6 +24,7 @@ const LoginPage = () => {
   const classes = useStyle();
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
+
   const [formCheck, setFormCheck] = useState(false);
   const [checkUser, setCheckUser] = useState(false);
   const [checkPassword, setCheckPasssword] = useState(false);
@@ -35,8 +37,17 @@ const LoginPage = () => {
     setPass(event.target.value);
   };
 
-  const test = (event) => {
+  async function fetchData() {
+    await axios.post(`http://localhost:8080/login`, {
+      username: user,
+      password: pass,
+    });
+    // .then((res) => setName(res.data.name));
+  }
+
+  const Test = (event) => {
     event.preventDefault();
+    fetchData();
     console.log("username : " + user);
     console.log("password : " + pass);
     setUser("");
@@ -57,7 +68,7 @@ const LoginPage = () => {
       <form
         noValidate
         autoComplete="off"
-        onSubmit={test}
+        onSubmit={Test}
         className={classes.root}
       >
         <div>

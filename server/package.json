@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon",
+    "start": "node index.js",
     "devStart": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,7 +13,10 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.12",
+    "sqlite3": "^5.0.2"
   }
 }
