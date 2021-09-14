@@ -1,5 +1,4 @@
-import LoginPage from "./Login/LoginPage";
-import MainPage from "./MainPageComponent/MainPage";
+import LoginPage from "./MainComponent/loginpage/LoginPage";
 
 const App = () => {
   return (
