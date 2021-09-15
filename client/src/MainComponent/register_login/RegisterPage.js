@@ -1,10 +1,20 @@
-import { Typography } from "@material-ui/core";
+import { TextField, Typography, makeStyles } from "@material-ui/core";
+
+const useStyle = makeStyles({
+  root: {
+    textAlign: "center",
+  },
+});
 
 const RegisterPage = () => {
+  const classes = useStyle();
+
   return (
-    <div>
-      <Typography variant="h1">Hello</Typography>
-      <form></form>
+    <div className={classes.root}>
+      <Typography>Register</Typography>
+      <form>
+        <TextField variant="outlined" label="username" />
+      </form>
     </div>
   );
 };
