@@ -42,7 +42,6 @@ const LoginPage = () => {
       username: user,
       password: pass,
     });
-    // .then((res) => setName(res.data.name));
   }
 
   const Test = (event) => {

@@ -1,33 +1,35 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const { Pool } = require("pg");
 const app = express();
+
+const pool = new Pool({
+  host: "localhost",
+  port: 5432,
+  user: "postgres",
+  password: "postgres",
+});
 
 app.use(cors());
 app.use(bodyParser.json());
 
-const sqlite3 = require("sqlite3").verbose();
-const db = new sqlite3.Database("../../Test.db");
-db.run("PRAGMA busy_timeout = 6000");
-db.configure("busyTimeout", 6000);
+app.post("/login", async (req, res) => {
+  const client = await pool.connect();
+  const account = await client.query(
+    `INSERT INTO account (username, password) VALUES('${req.body.username}', '${req.body.password}') RETURNING *`
+  );
 
-app.post("/login", (req, res) => {
-  console.log(req.body.username);
-  console.log(req.body.password);
-  let sql = `INSERT INTO Hiuser(username, password) VALUES("${req.body.username}", "${req.body.password}")`;
-  db.run(sql, (err) => {
-    if (err) {
-      return console.error(err);
-    }
-  });
+  console.log(account.rows);
+
+  client.release();
 
   res.json({
-    name: "HelloWorld",
-    pass: "Hello123",
+    code: 200,
+    message: "success",
   });
-  db.close();
 });
 
 app.listen(8080, () => {
-  console.log("Run....");
+  console.log("connected");
 });

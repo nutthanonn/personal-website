@@ -4,6 +4,7 @@ const RegisterPage = () => {
   return (
     <div>
       <Typography variant="h1">Hello</Typography>
+      <form></form>
     </div>
   );
 };
