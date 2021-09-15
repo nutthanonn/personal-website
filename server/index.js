@@ -1,6 +1,6 @@
 const express = require("express");
-var cors = require("cors");
-var bodyParser = require("body-parser");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 const app = express();
 
 app.use(cors());
@@ -23,7 +23,7 @@ app.post("/login", (req, res) => {
 
   res.json({
     name: "HelloWorld",
-    pass: "HiMynameNut",
+    pass: "Hello123",
   });
   db.close();
 });
