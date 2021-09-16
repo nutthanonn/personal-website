@@ -1,16 +1,10 @@
-import { TextField, Typography, makeStyles } from "@material-ui/core";
-
-const useStyle = makeStyles({
-  root: {
-    textAlign: "center",
-  },
-});
+import { TextField } from "@material-ui/core";
+import NavbarRegister from "./NavbarComponent/navbarRegister";
 
 const RegisterPage = () => {
-  const classes = useStyle();
-
   return (
-    <div className={classes.root}>
+    <div>
+      <NavbarRegister />
       <form>
         <TextField variant="outlined" label="username" />
       </form>

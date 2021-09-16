@@ -10,6 +10,7 @@ import NearMeIcon from "@material-ui/icons/NearMe";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import axios from "axios";
+import NavbarLogin from "./navbar/navbarLogin";
 
 const useStyle = makeStyles({
   btn: {
@@ -72,6 +73,7 @@ const LoginPage = () => {
 
   return (
     <div className={classes.main}>
+      <NavbarLogin />
       <form
         noValidate
         autoComplete="off"

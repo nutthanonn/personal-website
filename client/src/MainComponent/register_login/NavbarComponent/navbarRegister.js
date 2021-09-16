@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Typography,
   AppBar,
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FirstPage = () => {
+const NavbarRegister = () => {
   const classes = useStyles();
 
   return (
@@ -53,16 +54,17 @@ const FirstPage = () => {
             <Typography variant="h6" className={classes.title}>
               KMUTT Lab
             </Typography>
-            <Button color="inherit">Login</Button>
-            <Button color="inherit">Register</Button>
+            <Button color="inherit" component={Link} to="/">
+              Home
+            </Button>
+            <Button color="inherit" component={Link} to="/login">
+              Login
+            </Button>
           </Toolbar>
         </AppBar>
-        <div className={classes.header}>
-          <Typography variant="h2">Hello</Typography>
-        </div>
       </div>
     </ThemeProvider>
   );
 };
 
-export default FirstPage;
+export default NavbarRegister;
