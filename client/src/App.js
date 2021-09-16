@@ -1,9 +1,11 @@
-import LoginPage from "./MainComponent/register_login/LoginPage";
+import FirstPage from "./MainComponent/register_login/FirstPage";
+// import LoginPage from "./MainComponent/register_login/LoginPage";
 
 const App = () => {
   return (
     <div>
-      <LoginPage />
+      <FirstPage />
+      {/* <LoginPage /> */}
     </div>
   );
 };

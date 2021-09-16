@@ -11,7 +11,6 @@ const RegisterPage = () => {
 
   return (
     <div className={classes.root}>
-      <Typography>Register</Typography>
       <form>
         <TextField variant="outlined" label="username" />
       </form>

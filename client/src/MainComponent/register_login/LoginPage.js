@@ -1,7 +1,12 @@
-import { Button, TextField } from "@material-ui/core";
+import {
+  Button,
+  TextField,
+  Grid,
+  makeStyles,
+  Typography,
+} from "@material-ui/core";
 import { useEffect, useState } from "react";
 import NearMeIcon from "@material-ui/icons/NearMe";
-import { Grid, makeStyles } from "@material-ui/core";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import axios from "axios";
@@ -14,9 +19,14 @@ const useStyle = makeStyles({
     },
   },
   root: {
+    marginTop: 200,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    justifyContent: "center",
+  },
+  title: {
+    marginBottom: 20,
   },
 });
 
@@ -47,8 +57,6 @@ const LoginPage = () => {
   const Test = (event) => {
     event.preventDefault();
     fetchData();
-    console.log("username : " + user);
-    console.log("password : " + pass);
     setUser("");
     setPass("");
   };
@@ -63,13 +71,16 @@ const LoginPage = () => {
   }, [user, pass]);
 
   return (
-    <div>
+    <div className={classes.main}>
       <form
         noValidate
         autoComplete="off"
         onSubmit={Test}
         className={classes.root}
       >
+        <Typography variant="h3" color="primary" className={classes.title}>
+          Login
+        </Typography>
         <div>
           <Grid container spacing={1} alignItems="flex-end">
             <Grid item>
