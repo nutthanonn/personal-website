@@ -10,7 +10,7 @@ import NearMeIcon from "@material-ui/icons/NearMe";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import axios from "axios";
-import NavbarLogin from "./navbar/navbarLogin";
+import NavbarLogin from "./NavbarComponent/navbarLogin";
 
 const useStyle = makeStyles({
   btn: {
