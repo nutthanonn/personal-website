@@ -11,7 +11,6 @@ import { useSnackbar } from "notistack";
 import NearMeIcon from "@material-ui/icons/NearMe";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
-import axios from "axios";
 import NavbarLogin from "./NavbarComponent/navbarLogin";
 
 const useStyle = makeStyles({
@@ -56,16 +55,8 @@ const LoginPage = () => {
     setPass(event.target.value);
   };
 
-  async function fetchData() {
-    await axios.post(`http://localhost:8080/login`, {
-      username: user,
-      password: pass,
-    });
-  }
-
   const SubmitFul = (event) => {
     event.preventDefault();
-    fetchData();
     handleClickVariant("warning"); // รอเเก้ BackEnd เเล้วค่อยมาเปลี่ยนตรงนี้
     setUser("");
     setPass("");

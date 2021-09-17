@@ -1,8 +1,9 @@
 import { Route } from "react-router-dom";
+import { SnackbarProvider } from "notistack";
+
 import LoginPage from "./MainComponent/register_login/LoginPage";
 import RegisterPage from "./MainComponent/register_login/RegisterPage";
 import Home from "./MainComponent/register_login/Home";
-import { SnackbarProvider } from "notistack";
 import MainPage from "./MainComponent/mainpage/MainPage";
 const App = () => {
   return (
@@ -16,7 +17,9 @@ const App = () => {
         </SnackbarProvider>
       </Route>
       <Route path="/register">
-        <RegisterPage />
+        <SnackbarProvider maxSnack={3}>
+          <RegisterPage />
+        </SnackbarProvider>
       </Route>
       <Route path="/test">
         <MainPage />
