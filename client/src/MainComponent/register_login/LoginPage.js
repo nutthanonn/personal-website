@@ -1,3 +1,4 @@
+import * as React from "react";
 import {
   Button,
   TextField,
@@ -6,6 +7,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { useEffect, useState } from "react";
+import { useSnackbar } from "notistack";
 import NearMeIcon from "@material-ui/icons/NearMe";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
@@ -40,6 +42,12 @@ const LoginPage = () => {
   const [checkUser, setCheckUser] = useState(false);
   const [checkPassword, setCheckPasssword] = useState(false);
 
+  const { enqueueSnackbar } = useSnackbar();
+
+  const handleClickVariant = (variant) => {
+    enqueueSnackbar("Login Success", { variant });
+  };
+
   const Username = (event) => {
     setUser(event.target.value);
   };
@@ -55,9 +63,10 @@ const LoginPage = () => {
     });
   }
 
-  const Test = (event) => {
+  const SubmitFul = (event) => {
     event.preventDefault();
     fetchData();
+    handleClickVariant("success");
     setUser("");
     setPass("");
   };
@@ -77,7 +86,7 @@ const LoginPage = () => {
       <form
         noValidate
         autoComplete="off"
-        onSubmit={Test}
+        onSubmit={SubmitFul}
         className={classes.root}
       >
         <Typography variant="h3" color="primary" className={classes.title}>
