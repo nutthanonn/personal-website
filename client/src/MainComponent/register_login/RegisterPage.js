@@ -6,6 +6,8 @@ import {
   makeStyles,
   Typography,
   Box,
+  createTheme,
+  ThemeProvider,
 } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { useSnackbar } from "notistack";
@@ -15,6 +17,14 @@ import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import CheckIcon from "@material-ui/icons/Check";
 import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 import NavbarRegister from "./NavbarComponent/navbarRegister";
+
+const theme = createTheme({
+  palette: {
+    secondary: {
+      main: "#ffb74d",
+    },
+  },
+});
 
 const useStyle = makeStyles({
   btn: {
@@ -35,6 +45,17 @@ const useStyle = makeStyles({
   },
   icon: {
     marginRight: 5,
+  },
+  footer: {
+    position: "absolute",
+    bottom: 0,
+    backgroundColor: "#f7f7f7",
+    width: "100%",
+    height: 70,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
@@ -109,112 +130,122 @@ const RegisterPage = () => {
   }, [user, pass, confirm, email]);
 
   return (
-    <div className={classes.main}>
-      <NavbarRegister />
-      <form
-        noValidate
-        autoComplete="off"
-        onSubmit={SubmitFul}
-        className={classes.root}
-      >
-        <Typography variant="h3" color="primary" className={classes.title}>
-          Register
-        </Typography>
-
-        {/* UserID */}
-        <div>
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <AccountCircle
-              sx={{ color: "action.active", mr: 1, my: 0.5 }}
-              className={classes.icon}
-              color="primary"
-            />
-            <TextField
-              id="input-with-sx"
-              label="UserID"
-              value={user}
-              onChange={Username}
-              color="primary"
-              error={!checkUser}
-              variant="standard"
-              type="text"
-            />
-          </Box>
-        </div>
-
-        {/* Pass */}
-        <div>
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <VpnKeyIcon
-              sx={{ color: "action.active", mr: 1, my: 0.5 }}
-              className={classes.icon}
-              color="primary"
-            />
-            <TextField
-              id="input-with-icon-grid"
-              label="Password"
-              value={pass}
-              onChange={Password}
-              color="primary"
-              type="password"
-              error={!checkPassword}
-            />
-          </Box>
-        </div>
-
-        {/* Confirm */}
-        <div>
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <CheckIcon
-              sx={{ color: "action.active", mr: 1, my: 0.5 }}
-              className={classes.icon}
-              color="primary"
-            />
-            <TextField
-              id="input-with-icon-grid"
-              label="Comfirm Password"
-              value={confirm}
-              onChange={ConfirmPassword}
-              color="primary"
-              type="password"
-              error={!checkPassword}
-            />
-          </Box>
-        </div>
-
-        {/* Email */}
-        <div>
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <AlternateEmailIcon
-              sx={{ color: "action.active", mr: 1, my: 0.5 }}
-              className={classes.icon}
-              color="primary"
-            />
-            <TextField
-              id="input-with-icon-grid"
-              label="Email"
-              value={email}
-              onChange={Email}
-              color="primary"
-              type="email"
-              error={!checkEmail}
-            />
-          </Box>
-        </div>
-
-        <Button
-          className={classes.btn}
-          variant="outlined"
-          color="primary"
-          type="submit"
-          disabled={!formCheck}
-          startIcon={<NearMeIcon />}
-          size="small"
+    <ThemeProvider theme={theme}>
+      <div className={classes.main}>
+        <NavbarRegister />
+        <form
+          noValidate
+          autoComplete="off"
+          onSubmit={SubmitFul}
+          className={classes.root}
         >
-          Submit
-        </Button>
-      </form>
-    </div>
+          <Typography variant="h3" color="primary" className={classes.title}>
+            Register
+          </Typography>
+
+          {/* UserID */}
+          <div>
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <AccountCircle
+                sx={{ color: "action.active", mr: 1, my: 0.5 }}
+                className={classes.icon}
+                color="primary"
+              />
+              <TextField
+                id="input-with-sx"
+                label="UserID"
+                value={user}
+                onChange={Username}
+                color="primary"
+                error={!checkUser}
+                variant="standard"
+                type="text"
+              />
+            </Box>
+          </div>
+
+          {/* Pass */}
+          <div>
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <VpnKeyIcon
+                sx={{ color: "action.active", mr: 1, my: 0.5 }}
+                className={classes.icon}
+                color="primary"
+              />
+              <TextField
+                id="input-with-icon-grid"
+                label="Password"
+                value={pass}
+                onChange={Password}
+                color="primary"
+                type="password"
+                error={!checkPassword}
+              />
+            </Box>
+          </div>
+
+          {/* Confirm */}
+          <div>
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <CheckIcon
+                sx={{ color: "action.active", mr: 1, my: 0.5 }}
+                className={classes.icon}
+                color="primary"
+              />
+              <TextField
+                id="input-with-icon-check"
+                label="Comfirm Password"
+                value={confirm}
+                onChange={ConfirmPassword}
+                color="primary"
+                type="password"
+                error={!checkPassword}
+              />
+            </Box>
+          </div>
+
+          {/* Email */}
+          <div>
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <AlternateEmailIcon
+                sx={{ color: "action.active", mr: 1, my: 0.5 }}
+                className={classes.icon}
+                color="primary"
+              />
+              <TextField
+                id="input-with-icon-email"
+                label="Email"
+                value={email}
+                onChange={Email}
+                color="primary"
+                type="email"
+                error={!checkEmail}
+              />
+            </Box>
+          </div>
+
+          <Button
+            className={classes.btn}
+            variant="outlined"
+            color="primary"
+            type="submit"
+            disabled={!formCheck}
+            startIcon={<NearMeIcon />}
+            size="small"
+          >
+            Submit
+          </Button>
+        </form>
+        <div className={classes.footer}>
+          <Typography variant="h5" color="primary">
+            &copy; Nutthanon
+          </Typography>
+          <Typography variant="body2" color="secondary">
+            king mongkut's university of technology thonburi
+          </Typography>
+        </div>
+      </div>
+    </ThemeProvider>
   );
 };
 

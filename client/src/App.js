@@ -5,6 +5,7 @@ import LoginPage from "./MainComponent/register_login/LoginPage";
 import RegisterPage from "./MainComponent/register_login/RegisterPage";
 import Home from "./MainComponent/register_login/Home";
 import MainPage from "./MainComponent/mainpage/MainPage";
+
 const App = () => {
   return (
     <div>
