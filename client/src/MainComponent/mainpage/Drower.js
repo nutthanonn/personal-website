@@ -4,6 +4,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import WatchLaterIcon from "@material-ui/icons/WatchLater";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   makeStyles,
   Drawer,
@@ -89,7 +90,7 @@ export default function DrowerInApp() {
 
         <Divider />
 
-        <ListItem button key={"LogOut"}>
+        <ListItem button key={"LogOut"} component={Link} to="/">
           <ListItemIcon>
             <ExitToAppIcon />
           </ListItemIcon>
@@ -102,7 +103,7 @@ export default function DrowerInApp() {
   return (
     <div>
       <React.Fragment key="MENU">
-        <Button onClick={toggleDrawer("MENU", true)} endIcon={<MenuIcon />}>
+        <Button onClick={toggleDrawer("MENU", true)} startIcon={<MenuIcon />}>
           MENU
         </Button>
         <Drawer

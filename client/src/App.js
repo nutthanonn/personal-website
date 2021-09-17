@@ -3,6 +3,7 @@ import LoginPage from "./MainComponent/register_login/LoginPage";
 import RegisterPage from "./MainComponent/register_login/RegisterPage";
 import Home from "./MainComponent/register_login/Home";
 import { SnackbarProvider } from "notistack";
+import MainPage from "./MainComponent/mainpage/MainPage";
 const App = () => {
   return (
     <div>
@@ -16,6 +17,9 @@ const App = () => {
       </Route>
       <Route path="/register">
         <RegisterPage />
+      </Route>
+      <Route path="/test">
+        <MainPage />
       </Route>
     </div>
   );
