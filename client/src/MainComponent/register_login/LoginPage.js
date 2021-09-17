@@ -45,7 +45,7 @@ const LoginPage = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const handleClickVariant = (variant) => {
-    enqueueSnackbar("Login Success", { variant });
+    enqueueSnackbar(`Login ${variant}`, { variant });
   };
 
   const Username = (event) => {
@@ -66,7 +66,7 @@ const LoginPage = () => {
   const SubmitFul = (event) => {
     event.preventDefault();
     fetchData();
-    handleClickVariant("success");
+    handleClickVariant("warning"); // รอเเก้ BackEnd เเล้วค่อยมาเปลี่ยนตรงนี้
     setUser("");
     setPass("");
   };
