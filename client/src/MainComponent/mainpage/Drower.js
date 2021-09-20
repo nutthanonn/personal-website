@@ -17,7 +17,6 @@ import {
   Grid,
   IconButton,
   Tooltip,
-  Zoom,
 } from "@material-ui/core";
 import SettingDrawer from "./DrawerChild/SettingDrawer";
 import ContactDrawer from "./DrawerChild/ContactDrawer";
@@ -104,20 +103,18 @@ export default function DrowerInApp() {
 
   return (
     <div>
-      <React.Fragment key="MENU" TransitionComponent={Zoom}>
-        <Tooltip title="menu">
-          <IconButton onClick={toggleDrawer("MENU", true)}>
-            <MenuIcon />
-          </IconButton>
-        </Tooltip>
-        <Drawer
-          anchor="left"
-          open={state["MENU"]}
-          onClose={toggleDrawer("MENU", false)}
-        >
-          {list("MENU")}
-        </Drawer>
-      </React.Fragment>
+      <Tooltip title="menu">
+        <IconButton onClick={toggleDrawer("MENU", true)}>
+          <MenuIcon />
+        </IconButton>
+      </Tooltip>
+      <Drawer
+        anchor="left"
+        open={state["MENU"]}
+        onClose={toggleDrawer("MENU", false)}
+      >
+        {list("MENU")}
+      </Drawer>
     </div>
   );
 }

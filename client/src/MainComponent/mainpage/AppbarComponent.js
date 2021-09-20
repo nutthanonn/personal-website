@@ -10,6 +10,7 @@ import {
   useScrollTrigger,
   Fab,
   Zoom,
+  Hidden,
 } from "@material-ui/core";
 import React from "react";
 import SchoolIcon from "@material-ui/icons/School";
@@ -75,30 +76,30 @@ const AppbarComponent = (props) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <React.Fragment>
-        <CssBaseline />
-        <AppBar>
-          <Toolbar>
-            <Typography
-              className={classes.title}
-              color="inherit"
-              variant="subtitle1"
-            >
-              <DrowerInApp />
-            </Typography>
-            <Typography variant="h5">KMUTT LAB</Typography>
-            <IconButton>
-              <SchoolIcon />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-        <Toolbar id="back-to-top-anchor" />
-        <ScrollTop {...props}>
+      <CssBaseline />
+      <AppBar>
+        <Toolbar>
+          <Typography
+            className={classes.title}
+            color="inherit"
+            variant="subtitle1"
+          >
+            <DrowerInApp />
+          </Typography>
+          <Typography variant="h5">KMUTT LAB</Typography>
+          <IconButton>
+            <SchoolIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Toolbar id="back-to-top-anchor" />
+      <Hidden mdDown={true}>
+        <ScrollTop {...props} position="absolute">
           <Fab color="primary" size="large">
             <KeyboardArrowUpIcon />
           </Fab>
         </ScrollTop>
-      </React.Fragment>
+      </Hidden>
     </ThemeProvider>
   );
 };

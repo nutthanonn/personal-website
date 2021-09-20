@@ -1,10 +1,13 @@
 import * as React from "react";
-import { makeStyles } from "@material-ui/core";
+import { Grid, makeStyles, Hidden } from "@material-ui/core";
 import NavbarHome from "./NavbarComponent/navbarHome";
 import GridComponent from "./HomeComponent/gridComponent";
 import { Typography } from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { orange } from "@mui/material/colors";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
+import ContactsIcon from "@mui/icons-material/Contacts";
 
 const theme = createTheme({
   palette: {
@@ -17,6 +20,10 @@ const theme = createTheme({
 const useStyle = makeStyles({
   root: {
     marginTop: 60,
+  },
+  title: {
+    marginTop: 20,
+    textAlign: "center",
   },
   footer: {
     position: "absolute",
@@ -48,6 +55,22 @@ const Home = () => {
           </Typography>
         </div>
       </ThemeProvider>
+      <Hidden smDown={true}>
+        <Grid container className={classes.title}>
+          <Grid item md={4}>
+            <AccountBalanceIcon />
+            <Typography>Account</Typography>
+          </Grid>
+          <Grid item md={4}>
+            <AssignmentIndIcon />
+            <Typography>Assign</Typography>
+          </Grid>
+          <Grid item md={4}>
+            <ContactsIcon />
+            <Typography>Contact</Typography>
+          </Grid>
+        </Grid>
+      </Hidden>
     </div>
   );
 };
