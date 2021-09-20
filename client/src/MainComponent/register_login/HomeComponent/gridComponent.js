@@ -19,11 +19,11 @@ const GridComponent = () => {
   const classes = useStyle();
   return (
     <Grid container>
-      <Grid item md={5}>
+      <Grid item md={6}>
         <TitleComponent />
       </Grid>
       <Hidden smDown={true}>
-        <Grid item md={7} xs={6}>
+        <Grid item md={6} xs={6}>
           <Card className={classes.root}>
             <Grid container>
               <Grid item md={6}>
