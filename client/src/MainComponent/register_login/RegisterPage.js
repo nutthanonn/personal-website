@@ -70,6 +70,7 @@ const RegisterPage = () => {
   const [formCheck, setFormCheck] = useState(false);
   const [checkUser, setCheckUser] = useState(false);
   const [checkPassword, setCheckPasssword] = useState(false);
+  const [checkComfirmPassword, setcheckComfirmPassword] = useState(false);
   const [checkEmail, setCheckEmail] = useState(false);
 
   //sanckBar
@@ -98,13 +99,13 @@ const RegisterPage = () => {
     await axios.post(`http://localhost:8080/register`, {
       username: user,
       password: pass,
+      email: email,
     });
   }
 
   //formSubmit
   const SubmitFul = (event) => {
     event.preventDefault();
-    // CheckSamePass();
     fetchData();
     handleClickVariant("success"); // รอเเก้ BackEnd เเล้วค่อยมาเปลี่ยนตรงนี้
     setUser("");
@@ -113,16 +114,21 @@ const RegisterPage = () => {
     setEmail("");
   };
 
-  //change
+  //change/check
   useEffect(() => {
+    const emailCheckReg = new RegExp(/^\S+@\S+\.\S+$/);
     const check =
       user.trim().length > 1 &&
       pass.length > 1 &&
-      confirm.length > 1 &&
-      email.length > 5;
+      confirm === pass &&
+      emailCheckReg.test(email);
+    const ConfirmPasswordCheck =
+      pass === confirm && pass.length !== 0 ? true : false;
     const userCheck = user.trim().length > 1;
     const passwordCheck = pass.length > 1;
-    const EmailCheck = email.length > 5;
+    const EmailCheck = emailCheckReg.test(email);
+
+    setcheckComfirmPassword(ConfirmPasswordCheck);
     setCheckPasssword(passwordCheck);
     setCheckUser(userCheck);
     setCheckEmail(EmailCheck);
@@ -199,7 +205,7 @@ const RegisterPage = () => {
                 onChange={ConfirmPassword}
                 color="primary"
                 type="password"
-                error={!checkPassword}
+                error={!checkComfirmPassword}
               />
             </Box>
           </div>
