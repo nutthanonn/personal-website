@@ -16,20 +16,20 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post("/register", async (req, res) => {
-  const client = await pool.connect();
-  const account = await client.query(
-    `INSERT INTO account ( username, password, email ) VALUES(
-    '${req.body.username}', '${req.body.password}', 
-    '${req.body.email}') RETURNING *`
-  );
+  // const client = await pool.connect();
+  // const account = await client.query(
+  //   `INSERT INTO account ( username, password, email ) VALUES(
+  //   '${req.body.username}', '${req.body.password}',
+  //   '${req.body.email}') RETURNING *`
+  // );
 
-  console.log(account.rows);
+  console.log(req.body);
 
-  client.release();
+  // client.release();
 
   res.json({
     code: 200,
-    message: "success",
+    message: "Good Postman",
   });
 });
 
