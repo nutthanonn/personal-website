@@ -15,36 +15,21 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post("/register", async (req, res) => {
-  // const client = await pool.connect();
-  // const account = await client.query(
-  //   `INSERT INTO account ( username, password, email ) VALUES(
-  //   '${req.body.username}', '${req.body.password}',
-  //   '${req.body.email}') RETURNING *`
-  // );
+  const client = await pool.connect();
+  const account = await client.query(
+    `INSERT INTO account ( username, password, email ) VALUES(
+    '${req.body.username}', '${req.body.password}',
+    '${req.body.email}') RETURNING *`
+  );
 
   console.log(req.body);
 
-  // client.release();
+  client.release();
 
   res.json({
     code: 200,
     message: "Good Postman",
   });
-});
-
-app.post("/test", (req, res) => {
-  console.log(req.body);
-  if (req.body.username == "kaopat") {
-    res.json({
-      code: 200,
-      massage: "success",
-    });
-  } else {
-    res.json({
-      code: 404,
-      massage: "404 Not Found",
-    });
-  }
 });
 
 app.listen(8080, () => {
