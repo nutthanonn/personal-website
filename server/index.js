@@ -3,7 +3,6 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { Pool } = require("pg");
 const app = express();
-const uuid = require("uuid");
 
 const pool = new Pool({
   host: "localhost",
@@ -31,6 +30,21 @@ app.post("/register", async (req, res) => {
     code: 200,
     message: "Good Postman",
   });
+});
+
+app.post("/test", (req, res) => {
+  console.log(req.body);
+  if (req.body.username == "kaopat") {
+    res.json({
+      code: 200,
+      massage: "success",
+    });
+  } else {
+    res.json({
+      code: 404,
+      massage: "404 Not Found",
+    });
+  }
 });
 
 app.listen(8080, () => {
