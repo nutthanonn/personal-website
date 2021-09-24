@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { Pool } = require("pg");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 const app = express();
 
 const pool = new Pool({
@@ -16,11 +18,17 @@ app.use(bodyParser.json());
 
 app.post("/register", async (req, res) => {
   const client = await pool.connect();
-  const account = await client.query(
-    `INSERT INTO account ( username, password, email ) VALUES(
-    '${req.body.username}', '${req.body.password}',
-    '${req.body.email}') RETURNING *`
-  );
+  const username = req.body.username;
+  const password = req.body.password;
+  const email = req.body.email;
+
+  bcrypt.hash(password, saltRounds, function (err, hash) {
+    client.query(
+      `INSERT INTO account ( username, password, email ) VALUES(
+      '${username}', '${password}',
+      '${email}')`
+    );
+  });
 
   console.log(req.body);
 
