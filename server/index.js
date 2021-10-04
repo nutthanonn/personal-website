@@ -23,6 +23,7 @@ app.post("/register", async (req, res) => {
   const email = req.body.email;
 
   bcrypt.hash(password, saltRounds, function (err, hash) {
+    const password = hash;
     client.query(
       `INSERT INTO account ( username, password, email ) VALUES(
       '${username}', '${password}',
