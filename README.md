@@ -1,5 +1,5 @@
 # This is My First Project BackEnd-FontEnd
 
-`For learn Every thing I can`
+`For learn MUI / Tailwind / Ant-design`
 
 &copy; Nutthanonn
