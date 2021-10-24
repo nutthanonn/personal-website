@@ -1,30 +1,23 @@
-import { Box, Typography } from "@mui/material";
-import TextArea from "../components/formInput";
-import CardText from "../components/cardText";
-import { useSelector } from "react-redux";
+import Nav from "../components/navbar";
+import { programData } from "../data/programData";
+import CardProgram from "../components/CardProgram";
+
+//material-UI
+import { Box, Grid } from "@mui/material";
 
 export default function Home() {
-  const cart = useSelector((state) => state.card);
   return (
     <Box>
-      <form noValidate autoComplete="off" onSubmit={(e) => e.preventDefault()}>
-        <TextArea />
-        <Typography sx={{ textAlign: "center" }} variant="h3">
-          Comment
-        </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          {cart.map((e) => {
-            return <CardText data={e} key={e.id} />;
-          })}
-        </Box>
-      </form>
+      <Nav />
+      <Grid container spacing={4}>
+        {programData.map((item) => {
+          return (
+            <Grid item md={3} key={item.id}>
+              <CardProgram data={item} />
+            </Grid>
+          );
+        })}
+      </Grid>
     </Box>
   );
 }
