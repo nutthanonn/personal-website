@@ -1,13 +1,13 @@
-import { Router, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 
 export default function App() {
   return (
     <div className="App">
       <Switch>
-        <Router path="/">
+        <Route path="/">
           <Home />
-        </Router>
+        </Route>
       </Switch>
     </div>
   );

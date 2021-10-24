@@ -1,5 +1,3 @@
-# This is My First Project BackEnd-FontEnd
-
-`For learn MUI / Tailwind / Ant-design`
+# React - Redux Tookkit
 
 &copy; Nutthanonn
