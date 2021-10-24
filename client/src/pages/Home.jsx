@@ -4,7 +4,7 @@ import CardText from "../components/cardText";
 import { useSelector } from "react-redux";
 
 export default function Home() {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.card);
   return (
     <Box>
       <form noValidate autoComplete="off" onSubmit={(e) => e.preventDefault()}>

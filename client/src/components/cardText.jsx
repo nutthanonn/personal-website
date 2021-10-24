@@ -8,8 +8,12 @@ import {
   IconButton,
 } from "@mui/material";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import { useDispatch } from "react-redux";
+import { deleteText } from "../slices/cartSlice";
 
 export default function CardText({ data }) {
+  const dispatch = useDispatch();
+
   return (
     <Box sx={{ m: 3 }}>
       <Card sx={{ width: 500 }}>
@@ -17,7 +21,7 @@ export default function CardText({ data }) {
           title={data.title}
           avatar={<Avatar></Avatar>}
           action={
-            <IconButton>
+            <IconButton onClick={() => dispatch(deleteText({ id: data.id }))}>
               <HighlightOffIcon />
             </IconButton>
           }
