@@ -1,3 +1,3 @@
-# React - Redux Tookkit
+# React - Redux Tookkit and NodeJS
 
 &copy; Nutthanonn
