@@ -17,11 +17,6 @@ export default function Profile() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in
           hendrerit eros. Aliquam posuere nulla enim, ac molestie leo consequat
           nec. Integer et facilisis risus. Vivamus egestas ultrices augue
-          fermentum tempor. Maecenas nec nulla lacinia, pretium lorem sed,
-          iaculis mi. Donec id neque et odio fermentum tincidunt et eu augue.
-          Aenean ultricies tempus facilisis. Nulla metus sapien, posuere non
-          suscipit ut, maximus ornare leo. Vivamus eget risus non ex malesuada
-          elementum. Maecenas non dapibus lectus. Nam euismod,
         </Typography>
       </Box>
     </Box>
