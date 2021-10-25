@@ -1,15 +1,14 @@
-import { Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
+import About from "./pages/About";
+import Nav from "./components/Home/Nav";
 import "./App.css";
 
 export default function App() {
   return (
     <div className="App">
-      <Switch>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <Nav />
+      <Home />
+      <About />
     </div>
   );
 }

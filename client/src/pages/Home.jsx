@@ -1,11 +1,10 @@
 import { Box } from "@mui/system";
-import Nav from "../components/Nav";
-import HomeText from "../components/homeText";
+
+import HomeText from "../components/Home/homeText";
 
 export default function Home() {
   return (
     <Box>
-      <Nav />
       <HomeText />
     </Box>
   );
