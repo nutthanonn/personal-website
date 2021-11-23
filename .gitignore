@@ -1,4 +1,70 @@
-node_modules
-build
-public
 .vscode
+ 
+#----------------------------------fontend------------------------------
+
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/client/node_modules
+/client/.pnp
+.pnp.js
+
+# testing
+/client/coverage
+
+# production
+/client/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+
+
+
+
+#------------------------------backend----------------------------------
+# compiled output
+/server/dist
+/server/node_modules
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Tests
+/server/coverage
+/server/.nyc_output
+
+# IDEs and editors
+/server/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
