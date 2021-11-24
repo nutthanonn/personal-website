@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Person } from './interfaces/person.controller';
+import { Person } from '../interfaces/person.controller';
 
 @Injectable()
 export class PersonService {
