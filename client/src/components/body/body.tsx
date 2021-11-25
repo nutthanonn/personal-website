@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Grid } from "@mui/material";
 import Title from "./title";
 import TitleImage from "./titleImage";
+import MainPerforment from "./performance/mainPerformance";
 
 const Body: React.FC = () => {
   return (
@@ -9,7 +10,9 @@ const Body: React.FC = () => {
       <Grid container sx={{ height: "100vh" }}>
         <Grid
           item
-          md={7}
+          md={5}
+          sm={12}
+          xs={12}
           sx={{
             justifyContent: "center",
             alignItems: "center",
@@ -20,16 +23,18 @@ const Body: React.FC = () => {
         </Grid>
         <Grid
           item
-          md={5}
+          md={7}
           sx={{
-            justifyContent: "center",
+            justifyContent: "flex-end",
             alignItems: "center",
-            display: "flex",
+            display: { md: "flex", xs: "none", sm: "none" },
+            overflow: "hidden",
           }}
         >
           <TitleImage />
         </Grid>
       </Grid>
+      <MainPerforment />
     </Box>
   );
 };

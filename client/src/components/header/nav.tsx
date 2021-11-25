@@ -35,7 +35,7 @@ const Nav = () => {
         <AppBar sx={{ bgcolor: "#c6fad2", boxShadow: 0, color: "black" }}>
           <Toolbar>
             <Box sx={{ flexGrow: 1 }}></Box>
-            <Button>Contact</Button>
+            <Button sx={{ color: "#dd9bcf" }}>Contact</Button>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
