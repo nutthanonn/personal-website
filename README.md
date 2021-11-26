@@ -1,2 +1,2 @@
-<h2 align="center">React-NestJS</h2>
-<p align="center">React - NestJS - Typeorm</p>
+<h2 align="center">Portfolio</h2>
+<p align="center">&copy; Nutthanon Thongcharoen</p>

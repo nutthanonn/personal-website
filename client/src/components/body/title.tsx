@@ -17,6 +17,7 @@ const Title: React.FC = () => {
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 2 }}
+          viewport={{ once: true }}
         >
           <Typography variant="h2" color="#f48882">
             Kawpad Studio

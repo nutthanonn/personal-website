@@ -10,7 +10,7 @@ const Item: React.FC = () => {
       {Performance.map((item) => {
         return (
           <Grid container sx={{ mt: 10 }} spacing={5}>
-            <Grid item md={6}>
+            <Grid item md={6} sm={12}>
               <motion.div
                 whileInView={{ scale: 1, opacity: 1 }}
                 initial={{ scale: 0.5, opacity: 0 }}
@@ -23,6 +23,7 @@ const Item: React.FC = () => {
             <Grid
               item
               md={6}
+              sm={12}
               sx={{
                 display: "flex",
                 flexDirection: "column",

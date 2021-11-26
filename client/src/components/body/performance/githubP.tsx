@@ -8,14 +8,16 @@ const GithubP: React.FC = () => {
   return (
     <Box>
       <Container sx={{ mt: 20 }}>
-        <motion.div
-          whileInView={{ x: 0 }}
-          initial={{ x: 100 }}
-          transition={{ duration: 3, type: "spring", stiffness: 100 }}
-          viewport={{ once: true }}
-        >
-          <img src={GithubProfile} width="100%" height="" alt="" />
-        </motion.div>
+        <Box>
+          <motion.div
+            whileInView={{ x: 0 }}
+            initial={{ x: 100 }}
+            transition={{ duration: 3, type: "spring", stiffness: 100 }}
+            viewport={{ once: true }}
+          >
+            <img src={GithubProfile} width="100%" height="" alt="" />
+          </motion.div>
+        </Box>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <TitleGithub />
         </Box>

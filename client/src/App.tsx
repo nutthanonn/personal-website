@@ -6,7 +6,6 @@ const App: React.FC = () => {
   return (
     <Box sx={{ bgcolor: "#F6FFEE" }}>
       <Main />
-      <Box sx={{ height: "300vh" }}></Box>
     </Box>
   );
 };

@@ -6,7 +6,7 @@ const AllPerformance: React.FC = () => {
   return (
     <Box>
       <Box sx={{ display: "flex", justifyContent: "center", my: 10 }}>
-        <Typography variant="h2" color="#f48882">
+        <Typography variant="h3" color="#f48882">
           Performance
         </Typography>
       </Box>
