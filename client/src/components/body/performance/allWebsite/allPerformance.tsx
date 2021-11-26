@@ -5,10 +5,12 @@ import Item from "./item";
 const AllPerformance: React.FC = () => {
   return (
     <Box>
-      <Box>
-        <Typography></Typography>
+      <Box sx={{ display: "flex", justifyContent: "center", my: 10 }}>
+        <Typography variant="h2" color="#f48882">
+          Performance
+        </Typography>
       </Box>
-      <Box sx={{ mt: 20 }}>
+      <Box>
         <Container>
           <Item />
         </Container>

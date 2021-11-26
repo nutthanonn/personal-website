@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { Performance } from "../../../../api/performanceApi";
+import { AiOutlineClose, AiOutlineCheck } from "react-icons/ai";
 
 const Item: React.FC = () => {
   return (
@@ -33,6 +34,14 @@ const Item: React.FC = () => {
                 viewport={{ once: true }}
               >
                 <Typography variant="h4">{item.name}</Typography>
+                <Typography variant="body1">
+                  Responsive :{" "}
+                  {item.responsive === "y" ? (
+                    <AiOutlineCheck />
+                  ) : (
+                    <AiOutlineClose />
+                  )}
+                </Typography>
                 <Typography variant="body2" sx={{ mt: 1 }}>
                   Libraby ที่ใช้
                 </Typography>

@@ -5,7 +5,7 @@ const TitleGithub: React.FC = () => {
   return (
     <Box>
       <Typography
-        variant="h2"
+        variant="h4"
         color="#f48882"
         component="a"
         href="https://github.com/nutthanonn"
