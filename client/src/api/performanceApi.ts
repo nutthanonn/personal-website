@@ -1,5 +1,5 @@
 import halfPeople from "../images/halfPeople.png";
-import projectResponsive from "../images/projectResponsive.png";
+import store from "../images/store.png";
 import shoppingNonResponsive from "../images/shoppingNonResponsive.png";
 import bootstrap from "../images/bootstrap.png";
 
@@ -43,7 +43,7 @@ export const Performance: PerformanceProps[] = [
       "react-intersection-observer",
     ],
     link: "https://github.com/nutthanonn/react-typescript",
-    pic: projectResponsive,
+    pic: store,
   },
   {
     id: "03",
