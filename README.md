@@ -11,7 +11,7 @@ align="center">see more code...</a>
 align="center">see more code...</a>
 
 <h3 align="center">Shop</h3>
-<img src="./client/src/images/projectResponsive.png" align="center">
+<img src="./client/src/images/store.png" align="center">
 <a href="https://github.com/nutthanonn/react-typescript"
 align="center">see more code...</a>
 
