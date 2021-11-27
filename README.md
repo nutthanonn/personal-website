@@ -7,15 +7,15 @@ align="center">see more code...</a>
 
 `Bootstrap`
 <img src="./client/src/images/bootstrap.png" align="center">
-<a href="https://github.com/nutthanonn/half-people-2020"
+<a href="https://github.com/nutthanonn/bootstrap"
 align="center">see more code...</a>
 
 `Shop`
 <img src="./client/src/images/projectResponsive.png" align="center">
-<a href="https://github.com/nutthanonn/half-people-2020"
+<a href="https://github.com/nutthanonn/react-typescript"
 align="center">see more code...</a>
 
 `Simple-Ecommerce`
 <img src="./client/src/images/shoppingNonResponsive.png" align="center">
-<a href="https://github.com/nutthanonn/half-people-2020"
+<a href="https://github.com/nutthanonn/react-ts-ecommerce"
 align="center">see more code...</a>
