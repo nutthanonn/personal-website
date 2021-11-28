@@ -44,11 +44,11 @@ const Item: React.FC = () => {
                   )}
                 </Typography>
                 <Typography variant="body2" sx={{ mt: 1 }}>
-                  Libraby ที่ใช้
+                  Tools
                 </Typography>
 
                 <ul>
-                  {item.libraries.map((e) => {
+                  {item.tools.map((e) => {
                     return <li>{e}</li>;
                   })}
                 </ul>

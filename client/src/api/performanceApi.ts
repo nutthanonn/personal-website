@@ -7,7 +7,7 @@ interface PerformanceProps {
   id: string;
   name: string;
   responsive: string;
-  libraries: string[];
+  tools: string[];
   link: string;
   pic?: string;
 }
@@ -17,7 +17,7 @@ export const Performance: PerformanceProps[] = [
     id: "01",
     name: "เว็ปไซต์คนละครึ่ง",
     responsive: "y",
-    libraries: [
+    tools: [
       "React",
       "mobx",
       "mobx-react",
@@ -33,7 +33,7 @@ export const Performance: PerformanceProps[] = [
     id: "02",
     name: "เว็ปไซต์ผลงานง่ายๆ",
     responsive: "y",
-    libraries: [
+    tools: [
       "React",
       "mobx",
       "mobx-react",
@@ -49,7 +49,7 @@ export const Performance: PerformanceProps[] = [
     id: "03",
     name: "เว็ปไซต์ผลงาน",
     responsive: "n",
-    libraries: ["Bootstrap"],
+    tools: ["Bootstrap"],
     link: "https://github.com/nutthanonn/bootstrap",
     pic: bootstrap,
   },
@@ -57,7 +57,7 @@ export const Performance: PerformanceProps[] = [
     id: "04",
     name: "เว็ปไซต์ขายของออนไลน์เบื้องต้น",
     responsive: "n",
-    libraries: [
+    tools: [
       "React",
       "mobx",
       "mobx-react",
