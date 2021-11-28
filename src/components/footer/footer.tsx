@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  CssBaseline,
-  Toolbar,
-  IconButton,
-} from "@mui/material";
+import { Box, CssBaseline, Toolbar, IconButton } from "@mui/material";
 import { BsFacebook } from "react-icons/bs";
 
 const Footer: React.FC = () => {

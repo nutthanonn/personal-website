@@ -1,0 +1,13 @@
+.sunny {
+  animation: spin 5s alternate-reverse infinite;
+}
+
+@keyframes spin {
+  from {
+    opacity: 0.5;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+  }
+}

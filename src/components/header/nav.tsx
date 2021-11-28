@@ -6,8 +6,8 @@ import {
   CssBaseline,
   AppBar,
   Toolbar,
-  Button,
   Fab,
+  Typography,
 } from "@mui/material";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import ScrollTop from "./scrollTop";
@@ -37,8 +37,7 @@ const Nav = () => {
       <HideOnScroll>
         <AppBar sx={{ bgcolor: "#c6fad2", boxShadow: 0, color: "black" }}>
           <Toolbar>
-            <Box sx={{ flexGrow: 1 }}></Box>
-            <Button sx={{ color: "#dd9bcf" }}>Contact</Button>
+            <Typography>NUTTHANON</Typography>
           </Toolbar>
         </AppBar>
       </HideOnScroll>

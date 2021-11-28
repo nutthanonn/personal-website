@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
-import { motion } from "framer-motion";
 import { Performance } from "../../../../api/performanceApi";
 import { AiOutlineClose, AiOutlineCheck } from "react-icons/ai";
 
@@ -11,14 +10,7 @@ const Item: React.FC = () => {
         return (
           <Grid container sx={{ mt: 10 }} spacing={5}>
             <Grid item md={6} sm={12}>
-              <motion.div
-                whileInView={{ scale: 1, opacity: 1 }}
-                initial={{ scale: 0.5, opacity: 0 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true }}
-              >
-                <img src={item.pic} width="100%" height="" alt="คนละครึ่ง" />
-              </motion.div>
+              <img src={item.pic} width="100%" height="" alt="คนละครึ่ง" />
             </Grid>
             <Grid
               item
@@ -29,42 +21,36 @@ const Item: React.FC = () => {
                 flexDirection: "column",
               }}
             >
-              <motion.div
-                whileInView={{ opacity: 1 }}
-                initial={{ opacity: 0 }}
-                viewport={{ once: true }}
-              >
-                <Typography variant="h4">{item.name}</Typography>
-                <Typography variant="body1">
-                  Responsive :{" "}
-                  {item.responsive === "y" ? (
-                    <AiOutlineCheck />
-                  ) : (
-                    <AiOutlineClose />
-                  )}
-                </Typography>
-                <Typography variant="body2" sx={{ mt: 1 }}>
-                  Tools
-                </Typography>
+              <Typography variant="h4">{item.name}</Typography>
+              <Typography variant="body1">
+                Responsive :{" "}
+                {item.responsive === "y" ? (
+                  <AiOutlineCheck />
+                ) : (
+                  <AiOutlineClose />
+                )}
+              </Typography>
+              <Typography variant="body2" sx={{ mt: 1 }}>
+                Tools
+              </Typography>
 
-                <ul>
-                  {item.tools.map((e) => {
-                    return <li>{e}</li>;
-                  })}
-                </ul>
-                <Typography
-                  component="a"
-                  href={item.link}
-                  target="_blank"
-                  color="black"
-                  sx={{
-                    textDecoration: "none",
-                    "&:hover": { textDecoration: "underline" },
-                  }}
-                >
-                  You can see more...
-                </Typography>
-              </motion.div>
+              <ul>
+                {item.tools.map((e) => {
+                  return <li>{e}</li>;
+                })}
+              </ul>
+              <Typography
+                component="a"
+                href={item.link}
+                target="_blank"
+                color="black"
+                sx={{
+                  textDecoration: "none",
+                  "&:hover": { textDecoration: "underline" },
+                }}
+              >
+                You can see more...
+              </Typography>
             </Grid>
           </Grid>
         );

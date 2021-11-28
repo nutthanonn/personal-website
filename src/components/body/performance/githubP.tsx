@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Container } from "@mui/material";
 import TitleGithub from "./titleGithub";
-import { motion } from "framer-motion";
 import GithubProfile from "../../../images/GithubProfile.png";
 
 const GithubP: React.FC = () => {
@@ -9,14 +8,7 @@ const GithubP: React.FC = () => {
     <Box>
       <Container sx={{ mt: 20 }}>
         <Box>
-          <motion.div
-            whileInView={{ x: 0 }}
-            initial={{ x: 100 }}
-            transition={{ duration: 3, type: "spring", stiffness: 100 }}
-            viewport={{ once: true }}
-          >
-            <img src={GithubProfile} width="100%" height="" alt="" />
-          </motion.div>
+          <img src={GithubProfile} width="100%" height="" alt="" />
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <TitleGithub />
