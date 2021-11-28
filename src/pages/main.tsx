@@ -4,6 +4,7 @@ import Body from "../components/body/body";
 import Nav from "../components/header/nav";
 import Footer from "../components/footer/footer";
 
+//
 const Main: React.FC = () => {
   return (
     <Box>
