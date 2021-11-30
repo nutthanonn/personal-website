@@ -1,5 +1,5 @@
 <h1 align="center">Portfolio</h1>
-<a href="http://nutthanon-studio.herokuapp.com/" align="center">website portfolio on heroku</a>
+<a href="http://nutthanon-studio.herokuapp.com/" align="center">heroku website</a>
 
 <h3 align="center">คนละครึ่ง</h3>
 <img src="./src/images/halfPeople.png" align="center">
