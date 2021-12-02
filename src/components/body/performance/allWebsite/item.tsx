@@ -8,16 +8,14 @@ import { AiOutlineClose, AiOutlineCheck } from "react-icons/ai";
 
 const useStyles = makeStyles({
   root: {
-    marginTop: 10,
-  },
-  gridItemText: {
-    display: "flex",
-    flexDirection: "column",
+    paddingTop: 100,
   },
   gridTextLink: {
     textDecoration: "none",
-    "&:hover": { textDecoration: "underline" },
     color: "black",
+    "&:hover": {
+      textDecoration: "underline",
+    },
   },
 });
 
@@ -31,7 +29,7 @@ const Item: React.FC = () => {
             <Grid item md={6} sm={12}>
               <img src={item.pic} width="100%" height="" alt="คนละครึ่ง" />
             </Grid>
-            <Grid item md={6} sm={12} className={classes.gridItemText}>
+            <Grid item md={6} sm={12}>
               <Typography variant="h4">{item.name}</Typography>
               <Typography variant="body1">
                 Responsive :

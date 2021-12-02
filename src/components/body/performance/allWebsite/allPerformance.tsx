@@ -9,7 +9,7 @@ const useStyles = makeStyles({
   root: {
     display: "flex",
     justifyContent: "center",
-    marginTop: 10,
+    marginTop: 100,
     marginBottom: 10,
   },
 });
@@ -19,7 +19,7 @@ const AllPerformance: React.FC = () => {
   return (
     <Box>
       <Box className={classes.root}>
-        <Typography variant="h3" color="#f48882">
+        <Typography variant="h3" color="black">
           Performance
         </Typography>
       </Box>

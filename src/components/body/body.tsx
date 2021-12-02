@@ -14,6 +14,7 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "column",
   },
   gridImg: {
     justifyContent: "flex-end",
