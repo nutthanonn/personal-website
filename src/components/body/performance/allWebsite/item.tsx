@@ -1,29 +1,40 @@
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
 import { Performance } from "../../../../api/performanceApi";
 import { AiOutlineClose, AiOutlineCheck } from "react-icons/ai";
 
+const useStyles = makeStyles({
+  root: {
+    marginTop: 10,
+  },
+  gridItemText: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  gridTextLink: {
+    textDecoration: "none",
+    "&:hover": { textDecoration: "underline" },
+    color: "black",
+  },
+});
+
 const Item: React.FC = () => {
+  const classes = useStyles();
   return (
     <Box>
       {Performance.map((item) => {
         return (
-          <Grid container sx={{ mt: 10 }} spacing={5}>
+          <Grid container className={classes.root} spacing={5}>
             <Grid item md={6} sm={12}>
               <img src={item.pic} width="100%" height="" alt="คนละครึ่ง" />
             </Grid>
-            <Grid
-              item
-              md={6}
-              sm={12}
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
+            <Grid item md={6} sm={12} className={classes.gridItemText}>
               <Typography variant="h4">{item.name}</Typography>
               <Typography variant="body1">
-                Responsive :{" "}
+                Responsive :
                 {item.responsive === "y" ? (
                   <AiOutlineCheck />
                 ) : (
@@ -43,11 +54,7 @@ const Item: React.FC = () => {
                 component="a"
                 href={item.link}
                 target="_blank"
-                color="black"
-                sx={{
-                  textDecoration: "none",
-                  "&:hover": { textDecoration: "underline" },
-                }}
+                className={classes.gridTextLink}
               >
                 You can see more...
               </Typography>

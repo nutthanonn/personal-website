@@ -1,16 +1,29 @@
 import React from "react";
-import { Box, Container } from "@mui/material";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import TitleGithub from "./titleGithub";
 import GithubProfile from "../../../images/GithubProfile.png";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  root: {
+    marginTop: 20,
+  },
+  title: {
+    display: "flex",
+    justifyContent: "center",
+  },
+});
 
 const GithubP: React.FC = () => {
+  const classes = useStyles();
   return (
     <Box>
-      <Container sx={{ mt: 20 }}>
+      <Container className={classes.root}>
         <Box>
           <img src={GithubProfile} width="100%" height="" alt="" />
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box className={classes.title}>
           <TitleGithub />
         </Box>
       </Container>

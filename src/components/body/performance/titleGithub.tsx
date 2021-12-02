@@ -1,7 +1,19 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  title: {
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "underline",
+    },
+  },
+});
 
 const TitleGithub: React.FC = () => {
+  const classes = useStyles();
   return (
     <Box>
       <Typography
@@ -10,10 +22,7 @@ const TitleGithub: React.FC = () => {
         component="a"
         href="https://github.com/nutthanonn"
         target="_blank"
-        sx={{
-          textDecoration: "none",
-          "&:hover": { textDecoration: "underline" },
-        }}
+        className={classes.title}
       >
         This is my Github profile
       </Typography>

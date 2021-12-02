@@ -1,11 +1,24 @@
 import React from "react";
-import { Box, Container, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 import Item from "./item";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  root: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: 10,
+    marginBottom: 10,
+  },
+});
 
 const AllPerformance: React.FC = () => {
+  const classes = useStyles();
   return (
     <Box>
-      <Box sx={{ display: "flex", justifyContent: "center", my: 10 }}>
+      <Box className={classes.root}>
         <Typography variant="h3" color="#f48882">
           Performance
         </Typography>

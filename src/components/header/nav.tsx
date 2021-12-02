@@ -1,16 +1,22 @@
 import * as React from "react";
-import {
-  Slide,
-  Box,
-  useScrollTrigger,
-  CssBaseline,
-  AppBar,
-  Toolbar,
-  Fab,
-  Typography,
-} from "@mui/material";
+import Slide from "@mui/material/Slide";
+import Box from "@mui/material/Box";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
+import CssBaseline from "@mui/material/CssBaseline";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Fab from "@mui/material/Fab";
+import Typography from "@mui/material/Typography";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import ScrollTop from "./scrollTop";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  nav: {
+    backgroundColor: "#c6fad2",
+    color: "black",
+  },
+});
 
 interface Props {
   window?: () => Window;
@@ -31,11 +37,12 @@ function HideOnScroll(props: Props) {
 }
 
 const Nav = () => {
+  const classes = useStyles();
   return (
     <Box>
       <CssBaseline />
       <HideOnScroll>
-        <AppBar sx={{ bgcolor: "#c6fad2", boxShadow: 0, color: "black" }}>
+        <AppBar className={classes.nav} sx={{ boxShadow: 0 }}>
           <Toolbar>
             <Typography>NUTTHANON</Typography>
           </Toolbar>
