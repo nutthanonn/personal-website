@@ -2,6 +2,7 @@ import halfPeople from "../images/halfPeople.png";
 import store from "../images/store.png";
 import shoppingNonResponsive from "../images/shoppingNonResponsive.png";
 import bootstrap from "../images/bootstrap.png";
+import covidToday from "../images/covid-today.png";
 
 interface PerformanceProps {
   id: string;
@@ -67,5 +68,23 @@ export const Performance: PerformanceProps[] = [
     ],
     link: "https://github.com/nutthanonn/react-ts-ecommerce",
     pic: shoppingNonResponsive,
+  },
+  {
+    id: "05",
+    name: "เว็ปไซต์รายงานผู้ติดเชื้อโควิดแบบรายวัน",
+    responsive: "n",
+    tools: [
+      "React",
+      "mobx",
+      "mobx-react",
+      "material-ui",
+      "framer-motion",
+      "react-icons",
+      "axios",
+      "momentjs",
+      "react-countup",
+    ],
+    link: "https://github.com/nutthanonn/react-covid19-realtime",
+    pic: covidToday,
   },
 ];
