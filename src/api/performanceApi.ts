@@ -32,7 +32,7 @@ export const Performance: PerformanceProps[] = [
   },
   {
     id: "02",
-    name: "เว็ปไซต์ผลงานง่ายๆ",
+    name: "React Store",
     responsive: "y",
     tools: [
       "React",
@@ -48,7 +48,7 @@ export const Performance: PerformanceProps[] = [
   },
   {
     id: "03",
-    name: "เว็ปไซต์ผลงาน",
+    name: "Bootstrap performance",
     responsive: "n",
     tools: ["Bootstrap"],
     link: "https://github.com/nutthanonn/bootstrap",
@@ -56,7 +56,7 @@ export const Performance: PerformanceProps[] = [
   },
   {
     id: "04",
-    name: "เว็ปไซต์ขายของออนไลน์เบื้องต้น",
+    name: "React Ecommerce(simple)",
     responsive: "n",
     tools: [
       "React",
@@ -71,7 +71,7 @@ export const Performance: PerformanceProps[] = [
   },
   {
     id: "05",
-    name: "เว็ปไซต์รายงานผู้ติดเชื้อโควิดแบบรายวัน",
+    name: "Covid19 Today",
     responsive: "n",
     tools: [
       "React",
