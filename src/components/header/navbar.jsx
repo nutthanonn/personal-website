@@ -12,9 +12,10 @@ const useStyles = makeStyles({
     top: 0,
     left: 0,
     position: "sticky",
-    backgroundColor: "#AEE1E1",
+    backgroundColor: "#FDFDFD",
     boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
     zIndex: 10,
+    opacity: 0.95,
   },
   logo: {
     flexGrow: 1,
@@ -41,10 +42,10 @@ const Nav = () => {
             Home
           </Link>
           <Link href="/performance" underline="none">
-            performance
+            Performance
           </Link>
-          <Link href="/libraries" underline="none">
-            Libraries
+          <Link href="/Blog" underline="none">
+            Blog
           </Link>
           <Typography sx={{ display: "flex", alignItems: "center" }}>
             pages
