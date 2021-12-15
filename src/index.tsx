@@ -1,8 +1,8 @@
-import React from "react";
+import * as React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { BrowserRouter } from "react-router-dom";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
   typography: {
