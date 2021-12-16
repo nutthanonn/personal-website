@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
+import { motion } from "framer-motion";
 import { makeStyles } from "@mui/styles";
 import { GrReactjs } from "react-icons/gr";
 import { AiFillHtml5, AiFillGithub } from "react-icons/ai";
@@ -89,9 +90,15 @@ const LanguageAndTools: React.FC = () => {
             {languageAndToolsIcon.map((icon, index) => {
               return (
                 <Grid item key={index}>
-                  <Tooltip title={languageAndToolsText[index]}>
-                    <IconButton>{icon}</IconButton>
-                  </Tooltip>
+                  <motion.div
+                    whileInView={{ opacity: 1 }}
+                    initial={{ opacity: 0 }}
+                    transition={{ duration: 0.7 * index }}
+                  >
+                    <Tooltip title={languageAndToolsText[index]}>
+                      <IconButton>{icon}</IconButton>
+                    </Tooltip>
+                  </motion.div>
                 </Grid>
               );
             })}

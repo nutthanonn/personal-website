@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Title from "../components/covid/body/title";
+import ChartCovidTitle from "../components/covid/body/chartCovidTitle";
+import ChartAllType from "../components/covid/body/chartAllType";
+import SelectType from "../components/covid/body/selectType";
 
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -29,10 +32,13 @@ const CovidToday: React.FC = () => {
   const [open, setOpen] = useState<boolean>(true);
 
   useEffect(() => {
+    async function fetch() {}
+
     setTimeout(() => {
       setOpen(false);
     }, 1000);
   });
+
   const defaultAnimation = {
     loop: true,
     autoplay: true,
@@ -55,8 +61,12 @@ const CovidToday: React.FC = () => {
         <Grid item md={6} sx={{ display: "flex", justifyContent: "center" }}>
           <Title DialyStore={DialyStore} />
         </Grid>
-        <Grid item md={6}></Grid>
+        <Grid item md={6}>
+          <ChartCovidTitle />
+        </Grid>
       </Grid>
+      <SelectType />
+      <ChartAllType />
     </Box>
   );
 };

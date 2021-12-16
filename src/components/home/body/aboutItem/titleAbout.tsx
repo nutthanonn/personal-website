@@ -27,6 +27,19 @@ const animateName = {
     },
   },
 };
+const animateAbout = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+
+    transition: {
+      duration: 2,
+      type: "spring",
+    },
+  },
+};
 
 const TitleAbout: React.FC = () => {
   const classes = useStyles();
@@ -49,26 +62,32 @@ const TitleAbout: React.FC = () => {
           />
         </Box>
         <Box>
-          <Typography
-            paragraph={true}
-            color="white"
-            sx={{
-              ml: { md: 3, sm: 0, xs: 0 },
-              mt: 1,
-              fontSize: { md: 20, sm: 15, xs: 10 },
-            }}
+          <motion.div
+            variants={animateAbout}
+            whileInView="visible"
+            initial="hidden"
           >
-            สวัสดีครับ ผมชื่อ
-            <span className={classes.name}> นายณัฐนนท์ ทองเจริญ </span>
-            ปัจจุบันอายุ <b>18 </b>ปีครับ
-            <br />
-            ผมชื่นชอบการพัฒนาเว็ปไซต์ด้วย ReactJS
-            และนี่เป็นเว็ปไซต์ที่ผมสร้างขึ้น
-            <br />
-            เพื่อ รวบรวมผลงานที่เกี่ยวกับการทำเว็ปไซต์ของผมทั้งหมด
-            คุณสามารถเลือกรับชมเว็ปไซต์ต่างๆที่ผมได้จัดทำขึ้นมาได้จากทางมุมขวาบนของหน้าจอ
-            <br />
-          </Typography>
+            <Typography
+              paragraph={true}
+              color="white"
+              sx={{
+                ml: { md: 3, sm: 0, xs: 0 },
+                mt: 1,
+                fontSize: { md: 20, sm: 15, xs: 10 },
+              }}
+            >
+              สวัสดีครับ ผมชื่อ
+              <span className={classes.name}> นายณัฐนนท์ ทองเจริญ </span>
+              ปัจจุบันอายุ <b>18 </b>ปีครับ
+              <br />
+              ผมชื่นชอบการพัฒนาเว็ปไซต์ด้วย ReactJS
+              และนี่เป็นเว็ปไซต์ที่ผมสร้างขึ้น
+              <br />
+              เพื่อ รวบรวมผลงานที่เกี่ยวกับการทำเว็ปไซต์ของผมทั้งหมด
+              คุณสามารถเลือกรับชมเว็ปไซต์ต่างๆที่ผมได้จัดทำขึ้นมาได้จากทางมุมขวาบนของหน้าจอ
+              <br />
+            </Typography>
+          </motion.div>
           <Box
             sx={{
               display: "flex",

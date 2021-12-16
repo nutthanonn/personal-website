@@ -89,7 +89,7 @@ const Title: React.FC<TitleProps> = ({ DialyStore }) => {
           <Box className={classes.count}>
             <CountUp
               end={dialyData ? dialyData.new_case : 0}
-              duration={1}
+              duration={1.5}
               className={classes.newCase}
             />
             <Typography variant="h4">ราย</Typography>

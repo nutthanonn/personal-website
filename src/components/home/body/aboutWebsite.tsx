@@ -30,7 +30,7 @@ const animationHeader = {
     opacity: 1,
     transition: {
       type: "spring",
-      duration: 1,
+      duration: 2,
     },
   },
 };
