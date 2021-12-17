@@ -26,7 +26,7 @@ const ChartCovidTitle: React.FC<ChartCovidTitleProps> = observer(
     useEffect(() => {
       const res = store.dataTitle;
       setDataCovid(res);
-    }, [store.useData]);
+    }, [store.useData, store.dataTitle]);
 
     const dataSet = {
       labels: dataCovid[0],
