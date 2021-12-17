@@ -9,11 +9,14 @@ import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import { makeStyles } from "@mui/styles";
 import { IoLocationSharp } from "react-icons/io5";
-import { FcCalendar } from "react-icons/fc";
 import { MdApproval } from "react-icons/md";
+import { FiType } from "react-icons/fi";
 
 import { observer } from "mobx-react";
 import { TimeLineCaseAllImpl } from "../../../store/covidPageStore/timeLineCaseAllStore";
+
+import { fetchProvinceName } from "../../../api/covidPageApi/provinceName";
+import { ProvinceNameInterfaceProps } from "../../../interface/covidPage/provinceNameInterface";
 
 interface SelectTypeProps {
   store: TimeLineCaseAllImpl;
@@ -32,18 +35,41 @@ const useStyles = makeStyles({
   },
 });
 
+const typeItem = [
+  { word: "ผู้ติดเชื้อรายใหม่", value: "defaultType" },
+  { word: "ผู้เสียชีวิตรายใหม่", value: "new_death" },
+];
+
 const SelectType: React.FC<SelectTypeProps> = observer(({ store }) => {
   const classes = useStyles();
   const [valueProvince, setValueProvince] = useState<string>("defaultProvince");
-  const [valueMonth, setValueMonth] = useState<string>("defaultMonth");
+  const [valueDataType, setDataType] = useState<string>("defaultType");
+  const [provinceName, setProvinceName] = useState<
+    ProvinceNameInterfaceProps[]
+  >([]);
 
+  //fetch Data
+  useEffect(() => {
+    async function fetch() {
+      const res = await fetchProvinceName();
+      setProvinceName(res);
+    }
+    fetch();
+  }, []);
+
+  //target mobx Province
   useEffect(() => {
     store.change_Province(valueProvince);
-  }, [valueProvince, store.DataTimeLineCaseAll, store]);
+  }, [
+    valueProvince,
+    store,
+    store.DataTimeLineCaseAll,
+    store.DataTimeLineCaseByProvince,
+  ]);
 
   useEffect(() => {
-    store.change_Month(valueMonth);
-  }, [valueMonth, store.DataTimeLineCaseAll, store]);
+    store.change_type(valueDataType);
+  }, [store, valueDataType]);
 
   return (
     <Toolbar className={classes.root}>
@@ -67,27 +93,35 @@ const SelectType: React.FC<SelectTypeProps> = observer(({ store }) => {
                 <IoLocationSharp />
                 &nbsp;ทั้งประเทศ
               </MenuItem>
-              <MenuItem value="1">
-                <IoLocationSharp />
-                &nbsp;test
-              </MenuItem>
+              {provinceName.map((item) => {
+                return (
+                  <MenuItem value={item.name_th} key={item.id}>
+                    <IoLocationSharp />
+                    &nbsp;{item.name_th}
+                  </MenuItem>
+                );
+              })}
             </Select>
           </FormControl>
         </Box>
         <Box>
           <FormControl>
-            <InputLabel>เดือน</InputLabel>
+            <InputLabel>ชนิด</InputLabel>
             <Select
               size="small"
               label="เดือน"
-              onChange={(e: SelectChangeEvent) => setValueMonth(e.target.value)}
-              value={valueMonth}
+              onChange={(e: SelectChangeEvent) => setDataType(e.target.value)}
+              value={valueDataType}
               sx={{ width: { md: 200, sm: 150, xs: 100 } }}
             >
-              <MenuItem value="defaultMonth">
-                <FcCalendar />
-                &nbsp; ทุกเดือน
-              </MenuItem>
+              {typeItem.map((item) => {
+                return (
+                  <MenuItem value={item.value} key={item.value}>
+                    <FiType />
+                    &nbsp; {item.word}
+                  </MenuItem>
+                );
+              })}
             </Select>
           </FormControl>
         </Box>

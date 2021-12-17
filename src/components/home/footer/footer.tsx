@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
 
           <Tooltip title="Instagram">
             <IconButton
-              href="https://www.instagram.com/_n.tc__"
+              href="https://www.instagram.com/_n.tc__/"
               target="_blank"
             >
               <BsInstagram color="white" />

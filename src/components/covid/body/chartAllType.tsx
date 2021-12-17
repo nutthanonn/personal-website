@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { makeStyles } from "@mui/styles";
@@ -24,28 +24,50 @@ const useStyles = makeStyles({
   },
 });
 
-const data = {
-  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-  datasets: [
-    {
-      label: "รักษาหายแล้ว",
-      data: [33, 53, 85, 41, 44, 65],
-      fill: true,
-      backgroundColor: "rgba(73, 73, 73, 0.3)",
-      borderColor: "#FAF3F3",
-    },
-    {
-      label: "ผู้ติดเชื้อรายใหม่",
-      data: [33, 25, 35, 51, 54, 76],
-      fill: false,
-      borderColor: "#3B14A7",
-    },
-  ],
-};
-
 const ChartAllType: React.FC<ChartAllTypeProps> = observer(({ store }) => {
   const classes = useStyles();
   Chart.register(CategoryScale);
+  const [dataType, setDataType] = useState<any[]>([]);
+  const [title, setTitle] = useState<string>("");
+
+  useEffect(() => {
+    setDataType(store.useData);
+
+    if (store.TypeChart === "defaultType") {
+      if (store.Province === "defaultProvince") {
+        setTitle(`ผู้ติดเชื้อรายใหม่ต่อเดือน ทั้งหมดในประเทศ`);
+      } else {
+        const province = store.Province;
+        setTitle(`ผู้ติดเชื้อรายใหม่ต่อเดือน จังหวัด ${province}`);
+      }
+    } else {
+      if (store.Province === "defaultProvince") {
+        setTitle(`ผู้เสียชีวิตรายใหม่ต่อเดือน ทั้งหมดในประเทศ`);
+      } else {
+        const province = store.Province;
+        setTitle(`ผู้เสียชีวิตรายใหม่ต่อเดือน จังหวัด ${province}`);
+      }
+    }
+  }, [store, store.useData]);
+
+  const data = {
+    labels: dataType[0],
+    datasets: [
+      {
+        label: title,
+        data: dataType[1],
+        fill: true,
+        backgroundColor: "rgba(73, 73, 73, 0.3)",
+        borderColor: "#FAF3F3",
+      },
+      // {
+      //   label: "ผู้ติดเชื้อรายใหม่",
+      //   data: [33, 25, 35, 51, 54, 76],
+      //   fill: false,
+      //   borderColor: "#3B14A7",
+      // },
+    ],
+  };
 
   return (
     <Box className={classes.root}>

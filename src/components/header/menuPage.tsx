@@ -25,11 +25,15 @@ const MenuPage: React.FC = () => {
   return (
     <Box>
       <Box className={classes.boxItem}>
-        <Typography component="a" className={classes.linkText} href="/home">
-          Homepage
-        </Typography>
         <Typography component="a" className={classes.linkText} href="/">
-          testpage
+          Home Page
+        </Typography>
+        <Typography
+          component="a"
+          className={classes.linkText}
+          href="/covid19page"
+        >
+          Covid19 Page
         </Typography>
         {item.map((item) => {
           return (

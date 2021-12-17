@@ -3,21 +3,23 @@ import Title from "../components/covid/body/title";
 import ChartCovidTitle from "../components/covid/body/chartCovidTitle";
 import ChartAllType from "../components/covid/body/chartAllType";
 import SelectType from "../components/covid/body/selectType";
+import Footer from "../components/covid/footer/footer";
 
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Backdrop from "@mui/material/Backdrop";
 import Lottie from "react-lottie";
 import animationBackdrop from "../lottiesAnimation/lottie-stay-safe-stay-home.json";
 import { makeStyles } from "@mui/styles";
+
 import { DialyStore } from "../store/covidPageStore/dialyStore";
 import { TimeLineCaseAllStore } from "../store/covidPageStore/timeLineCaseAllStore";
 
 const useStyles = makeStyles({
   root: {
-    height: "300vh",
     backgroundColor: "#FAF6E9",
   },
   grid: {
@@ -35,7 +37,7 @@ const CovidToday: React.FC = () => {
   useEffect(() => {
     setTimeout(() => {
       setOpen(false);
-    }, 1000);
+    }, 1500);
   });
 
   const defaultAnimation = {
@@ -53,13 +55,15 @@ const CovidToday: React.FC = () => {
       >
         <Lottie options={defaultAnimation} />
       </Backdrop>
-      <Typography
-        color="#494949"
-        variant="h5"
-        sx={{ fontSize: { md: 30, sm: 25, xs: 15 } }}
-      >
-        เว็ปไซต์รายงานสถาณการณ์ Covid19 รายวัน
-      </Typography>
+      <Container>
+        <Typography
+          color="#494949"
+          variant="h5"
+          sx={{ fontSize: { md: 30, sm: 25, xs: 15 } }}
+        >
+          เว็ปไซต์รายงานสถาณการณ์ Covid19 รายวัน
+        </Typography>
+      </Container>
       <Grid container sx={{ bgcolor: "#ECE8D9" }} className={classes.grid}>
         <Grid
           item
@@ -76,6 +80,7 @@ const CovidToday: React.FC = () => {
       </Grid>
       <SelectType store={TimeLineCaseAllStore} />
       <ChartAllType store={TimeLineCaseAllStore} />
+      <Footer />
     </Box>
   );
 };

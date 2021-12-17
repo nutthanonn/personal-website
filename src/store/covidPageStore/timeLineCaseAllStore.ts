@@ -13,7 +13,7 @@ export class TimeLineCaseAllImpl {
   @observable
   DataTimeLineCaseByProvince: timeLineCaseByProvinceInterfaceProps[] = [];
   @observable Province: string = "defaultProvince";
-  @observable Month: string = "defaultMonth";
+  @observable TypeChart: string = "defaultType";
   @observable dataTitle: any[][] = [["Jan"], [0]];
   @observable useData: any[][] = [["Jan"], [0]];
 
@@ -29,9 +29,9 @@ export class TimeLineCaseAllImpl {
     this.DataTimeLineCaseByProvince = timeLineCaseByProvince;
   }
 
-  //ทุกเดือน ทุกจังหวัด --> sol(n) => total[i] += ...
+  //ทุกเดือน ...จังหวัด --> sol(n) => total[i] += ...
   @action
-  default_month_data() {
+  default_month_data(key?: string) {
     const month = [
       "Jan",
       "Feb",
@@ -46,14 +46,33 @@ export class TimeLineCaseAllImpl {
       "Nov",
       "Dec",
     ];
-    var total = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    this.DataTimeLineCaseAll.forEach((item) => {
-      const monthNo = item.txn_date.slice(5, 7);
-      total[parseInt(monthNo) - 1] += item.new_case;
-    });
+    const total = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    if (!key) {
+      this.DataTimeLineCaseAll.forEach((item) => {
+        const monthNo = item.txn_date.slice(5, 7);
+        if (this.TypeChart === "defaultType") {
+          total[parseInt(monthNo) - 1] += item.new_case;
+        } else {
+          total[parseInt(monthNo) - 1] += item.new_death;
+        }
+      });
+    } else {
+      const provinceData = this.DataTimeLineCaseByProvince.filter((item) => {
+        return item.province === key;
+      });
 
-    const newMonthData: any[] = [];
-    const newTotalData: any[] = [];
+      provinceData.forEach((item) => {
+        const monthNo = item.txn_date.slice(5, 7);
+        if (this.TypeChart === "defaultType") {
+          total[parseInt(monthNo) - 1] += item.new_case;
+        } else {
+          total[parseInt(monthNo) - 1] += item.new_death;
+        }
+      });
+    }
+
+    const newMonthData: string[] = [];
+    const newTotalData: number[] = [];
 
     total.forEach((item, index) => {
       if (item !== 0) {
@@ -62,39 +81,35 @@ export class TimeLineCaseAllImpl {
       }
     });
 
-    this.useData = [newMonthData, newTotalData];
-    this.dataTitle = [newMonthData, newTotalData];
+    if (key) {
+      this.useData = [newMonthData, newTotalData];
+    } else {
+      this.useData = [newMonthData, newTotalData];
+      this.dataTitle = [newMonthData, newTotalData];
+    }
   }
 
   //ทุกเดือน บางจังหวัด --> sol(n) => หาจังหวัดมา reduce
   @action
-  case_by_province() {
-    this.DataTimeLineCaseByProvince.map((item) => {});
+  case_by_province(target: string) {
+    this.default_month_data(target);
   }
 
   //ทำงานเมื่อเกิด Action ขณะผู้ใช้เปลี่ยน Select Province
   @action
   change_Province(province: string) {
     this.Province = province;
-    if (this.Month === "defaultMonth") {
-      if (this.Province === "defaultProvince") {
-        this.default_month_data();
-      }
+    if (this.Province === "defaultProvince") {
+      this.default_month_data();
     } else {
-      this.case_by_province();
+      this.case_by_province(province);
     }
   }
 
-  //ทำงานเมื่อเกิด Action ขณะผู้ใช้เปลี่ยน Select Month
   @action
-  change_Month(month: string) {
-    this.Month = month;
-    if (this.Province === "defaultProvince") {
-      if (this.Month === "defaultMonth") {
-        this.default_month_data();
-      }
-    } else {
-    }
+  change_type(type: string) {
+    this.TypeChart = type;
+    this.default_month_data(this.Province);
   }
 }
 
