@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
+import Toolbar from "@mui/material/Toolbar";
 import Lottie from "react-lottie";
 import animationReactIcon from "../../../lottiesAnimation/home/lottie-react-logo-spinning.json";
 import { makeStyles } from "@mui/styles";
@@ -49,7 +50,7 @@ const Footer: React.FC = () => {
         </Box>
       </Container>
       <CssBaseline />
-      <Box className={classes.footer}>
+      <Toolbar className={classes.footer}>
         <Container className={classes.footerContainer}>
           <Typography
             variant="h6"
@@ -85,7 +86,7 @@ const Footer: React.FC = () => {
             </IconButton>
           </Tooltip>
         </Container>
-      </Box>
+      </Toolbar>
     </Box>
   );
 };

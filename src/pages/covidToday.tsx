@@ -13,6 +13,7 @@ import Lottie from "react-lottie";
 import animationBackdrop from "../lottiesAnimation/lottie-stay-safe-stay-home.json";
 import { makeStyles } from "@mui/styles";
 import { DialyStore } from "../store/covidPageStore/dialyStore";
+import { TimeLineCaseAllStore } from "../store/covidPageStore/timeLineCaseAllStore";
 
 const useStyles = makeStyles({
   root: {
@@ -32,8 +33,6 @@ const CovidToday: React.FC = () => {
   const [open, setOpen] = useState<boolean>(true);
 
   useEffect(() => {
-    async function fetch() {}
-
     setTimeout(() => {
       setOpen(false);
     }, 1000);
@@ -54,19 +53,29 @@ const CovidToday: React.FC = () => {
       >
         <Lottie options={defaultAnimation} />
       </Backdrop>
-      <Typography color="#494949" variant="h5">
+      <Typography
+        color="#494949"
+        variant="h5"
+        sx={{ fontSize: { md: 30, sm: 25, xs: 15 } }}
+      >
         เว็ปไซต์รายงานสถาณการณ์ Covid19 รายวัน
       </Typography>
       <Grid container sx={{ bgcolor: "#ECE8D9" }} className={classes.grid}>
-        <Grid item md={6} sx={{ display: "flex", justifyContent: "center" }}>
+        <Grid
+          item
+          md={6}
+          sm={12}
+          xs={12}
+          sx={{ display: "flex", justifyContent: "center" }}
+        >
           <Title DialyStore={DialyStore} />
         </Grid>
-        <Grid item md={6}>
-          <ChartCovidTitle />
+        <Grid item md={6} sm={12} xs={12}>
+          <ChartCovidTitle store={TimeLineCaseAllStore} />
         </Grid>
       </Grid>
-      <SelectType />
-      <ChartAllType />
+      <SelectType store={TimeLineCaseAllStore} />
+      <ChartAllType store={TimeLineCaseAllStore} />
     </Box>
   );
 };

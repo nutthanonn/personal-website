@@ -6,6 +6,12 @@ import { makeStyles } from "@mui/styles";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import { CategoryScale } from "chart.js";
+import { observer } from "mobx-react";
+import { TimeLineCaseAllImpl } from "../../../store/covidPageStore/timeLineCaseAllStore";
+
+interface ChartAllTypeProps {
+  store: TimeLineCaseAllImpl;
+}
 
 const useStyles = makeStyles({
   root: {
@@ -37,7 +43,7 @@ const data = {
   ],
 };
 
-const ChartAllType: React.FC = () => {
+const ChartAllType: React.FC<ChartAllTypeProps> = observer(({ store }) => {
   const classes = useStyles();
   Chart.register(CategoryScale);
 
@@ -48,6 +54,6 @@ const ChartAllType: React.FC = () => {
       </Container>
     </Box>
   );
-};
+});
 
 export default ChartAllType;

@@ -1,40 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 
-const data = {
-  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-  datasets: [
-    {
-      label: "รักษาหายแล้ว",
-      data: [33, 53, 85, 41, 44, 65],
-      fill: true,
-      backgroundColor: "rgba(75,192,192,0.2)",
-      borderColor: "rgba(75,192,192,1)",
-    },
-    {
-      label: "ผู้ติดเชื้อรายใหม่",
-      data: [33, 25, 35, 51, 54, 76],
-      fill: false,
-      borderColor: "#742774",
-    },
-  ],
-};
+import { observer } from "mobx-react";
+import { TimeLineCaseAllImpl } from "../../../store/covidPageStore/timeLineCaseAllStore";
 
-const ChartCovidTitle: React.FC = () => {
-  Chart.register(CategoryScale);
-  return (
-    <Box>
-      <Container>
-        <Typography variant="h5">ข้อมูลผู้ติดเชื้อเดือนธันวาคม</Typography>
-        <Line data={data} />
-      </Container>
-    </Box>
-  );
-};
+interface ChartCovidTitleProps {
+  store: TimeLineCaseAllImpl;
+}
+
+const ChartCovidTitle: React.FC<ChartCovidTitleProps> = observer(
+  ({ store }) => {
+    Chart.register(CategoryScale);
+    const [dataCovid, setDataCovid] = useState<any[][]>([["Jan"], [0]]);
+
+    //fetch Data
+    useEffect(() => {
+      store.fecth_data();
+    }, [store]);
+
+    useEffect(() => {
+      const res = store.dataTitle;
+      setDataCovid(res);
+    }, [store.useData]);
+
+    const dataSet = {
+      labels: dataCovid[0],
+      datasets: [
+        {
+          label: "ยอดผู้ติดเชื้อตั้งเเต่ระรอก 3",
+          data: dataCovid[1],
+          fill: true,
+          backgroundColor: "rgba(75,192,192,0.2)",
+          borderColor: "rgba(75,192,192,1)",
+        },
+      ],
+    };
+
+    return (
+      <Box>
+        <Container>
+          <Line data={dataSet} />
+        </Container>
+      </Box>
+    );
+  }
+);
 
 export default ChartCovidTitle;

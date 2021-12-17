@@ -71,13 +71,23 @@ const Title: React.FC<TitleProps> = ({ DialyStore }) => {
   return (
     <Box>
       <CssBaseline />
-      <Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          mt: 2,
+        }}
+      >
         <motion.div
           variants={animationTitle}
           animate="visible"
           initial="hidden"
         >
-          <Typography color="#494949" variant="h3">
+          <Typography
+            color="#494949"
+            variant="h3"
+            sx={{ fontSize: { md: 30, xs: 20, sm: 25 } }}
+          >
             ยอดผู้ติดเชื้อวันนี้
           </Typography>
         </motion.div>

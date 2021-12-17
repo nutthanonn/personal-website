@@ -33,7 +33,7 @@ const MenuPage: React.FC = () => {
         </Typography>
         {item.map((item) => {
           return (
-            <Typography className={classes.linkText}>
+            <Typography className={classes.linkText} key={item}>
               page na ja eiei eiei{item}
             </Typography>
           );
