@@ -26,12 +26,11 @@ const useStyles = makeStyles({
   root: {
     backgroundColor: "#FFFDF6",
     paddingBlock: 20,
-  },
-  selectBox: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-end",
     alignItems: "center",
+    marginRight: 20,
   },
 });
 
@@ -72,61 +71,59 @@ const SelectType: React.FC<SelectTypeProps> = observer(({ store }) => {
   }, [store, valueDataType]);
 
   return (
-    <Toolbar className={classes.root}>
-      <Container className={classes.selectBox}>
-        <Box sx={{ mr: 1 }}>
-          <FormControl>
-            <InputLabel>
-              จังหวัด
-              <MdApproval />
-            </InputLabel>
-            <Select
-              size="small"
-              label="จังหวัด"
-              onChange={(e: SelectChangeEvent) =>
-                setValueProvince(e.target.value)
-              }
-              value={valueProvince}
-              sx={{ width: { md: 200, sm: 150, xs: 100 } }}
-            >
-              <MenuItem value="defaultProvince">
-                <IoLocationSharp />
-                &nbsp;ทั้งประเทศ
-              </MenuItem>
-              {provinceName.map((item) => {
-                return (
-                  <MenuItem value={item.name_th} key={item.id}>
-                    <IoLocationSharp />
-                    &nbsp;{item.name_th}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-          </FormControl>
-        </Box>
-        <Box>
-          <FormControl>
-            <InputLabel>ชนิด</InputLabel>
-            <Select
-              size="small"
-              label="เดือน"
-              onChange={(e: SelectChangeEvent) => setDataType(e.target.value)}
-              value={valueDataType}
-              sx={{ width: { md: 200, sm: 150, xs: 100 } }}
-            >
-              {typeItem.map((item) => {
-                return (
-                  <MenuItem value={item.value} key={item.value}>
-                    <FiType />
-                    &nbsp; {item.word}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-          </FormControl>
-        </Box>
-      </Container>
-    </Toolbar>
+    <Box className={classes.root}>
+      <Box>
+        <FormControl>
+          <InputLabel>
+            จังหวัด
+            <MdApproval />
+          </InputLabel>
+          <Select
+            size="small"
+            label="จังหวัด"
+            onChange={(e: SelectChangeEvent) =>
+              setValueProvince(e.target.value)
+            }
+            value={valueProvince}
+            sx={{ width: { md: 200, sm: 150, xs: 100 } }}
+          >
+            <MenuItem value="defaultProvince">
+              <IoLocationSharp />
+              &nbsp;ทั้งประเทศ
+            </MenuItem>
+            {provinceName.map((item) => {
+              return (
+                <MenuItem value={item.name_th} key={item.id}>
+                  <IoLocationSharp />
+                  &nbsp;{item.name_th}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
+      </Box>
+      <Box sx={{ ml: 1 }}>
+        <FormControl>
+          <InputLabel>ชนิด</InputLabel>
+          <Select
+            size="small"
+            label="เดือน"
+            onChange={(e: SelectChangeEvent) => setDataType(e.target.value)}
+            value={valueDataType}
+            sx={{ width: { md: 200, sm: 150, xs: 100 } }}
+          >
+            {typeItem.map((item) => {
+              return (
+                <MenuItem value={item.value} key={item.value}>
+                  <FiType />
+                  &nbsp; {item.word}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
+      </Box>
+    </Box>
   );
 });
 

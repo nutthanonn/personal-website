@@ -18,16 +18,15 @@ const useStyles = makeStyles({
     marginTop: 10,
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-between",
   },
   container: {
     display: "flex",
     justifyContent: "flex-end",
     marginBlock: 12,
   },
-  titleContact: {
-    flexGrow: 1,
-  },
-  footerContainer: {
+
+  boxInContainer: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -51,19 +50,17 @@ const Footer: React.FC = () => {
       </Container>
       <CssBaseline />
       <Toolbar className={classes.footer}>
-        <Container className={classes.footerContainer}>
-          <Typography
-            variant="h6"
-            className={classes.titleContact}
-            color="white"
-            sx={{ display: { md: "flex", sm: "flex", xs: "none" } }}
-          >
-            Nutthanon Studio
-          </Typography>
+        <Typography
+          variant="h6"
+          color="white"
+          sx={{ display: { md: "flex", sm: "flex", xs: "none" } }}
+        >
+          Nutthanon Studio
+        </Typography>
+        <Box className={classes.boxInContainer}>
           <Typography variant="h6" color="white">
             Contact
           </Typography>
-
           <Tooltip title="Instagram">
             <IconButton
               href="https://www.instagram.com/_n.tc__/"
@@ -85,7 +82,7 @@ const Footer: React.FC = () => {
               <BsGithub color="white" />
             </IconButton>
           </Tooltip>
-        </Container>
+        </Box>
       </Toolbar>
     </Box>
   );

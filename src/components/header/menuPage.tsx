@@ -28,12 +28,11 @@ const MenuPage: React.FC = () => {
         <Typography component="a" className={classes.linkText} href="/">
           Home Page
         </Typography>
-        <Typography
-          component="a"
-          className={classes.linkText}
-          href="/covid19page"
-        >
+        <Typography component="a" className={classes.linkText} href="/covid19">
           Covid19 Page
+        </Typography>
+        <Typography component="a" className={classes.linkText} href="/search">
+          Search Page
         </Typography>
         {item.map((item) => {
           return (

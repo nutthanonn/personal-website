@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Nav from "../components/header/navbar";
 import Title from "../components/home/body/title";
 import AboutWebsite from "../components/home/body/aboutWebsite";
 import LanguageAndTools from "../components/home/body/languageAndTools";
@@ -36,6 +37,7 @@ const Home: React.FC = () => {
 
   return (
     <Box className={classes.root}>
+      <Nav />
       <Backdrop
         open={open}
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}

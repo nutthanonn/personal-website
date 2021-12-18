@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Nav from "../components/header/navbar";
 import Title from "../components/covid/body/title";
 import ChartCovidTitle from "../components/covid/body/chartCovidTitle";
 import ChartAllType from "../components/covid/body/chartAllType";
@@ -48,6 +49,7 @@ const CovidToday: React.FC = () => {
 
   return (
     <Box className={classes.root}>
+      <Nav />
       <CssBaseline />
       <Backdrop
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
