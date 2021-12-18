@@ -11,17 +11,18 @@ import { BiSearch, BiMicrophone } from "react-icons/bi";
 
 const TextForm: React.FC = () => {
   const [data, setData] = useState<string>("");
-  const [link, setLink] = useState<string>("");
+  const [placeholder, setPlaceholder] = useState<string>("");
 
-  const submitChange = (e: any) => {
-    var txt: string = "http://www.google.com/search?q=";
-    const newData = data.split(" ");
-    newData.forEach((item) => {
-      txt += item + "+";
-    });
+  const linkGoogle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const txt: string =
+      "https://www.google.com/search?q=" + e.target.value.replaceAll(" ", "+");
+    setData(txt);
+    setPlaceholder(e.target.value);
+  };
 
-    setLink(txt.substring(0, txt.length - 1));
-    console.log(link);
+  const test = (e: any) => {
+    window.location.href = data;
+    setPlaceholder("");
     e.preventDefault();
   };
 
@@ -29,8 +30,7 @@ const TextForm: React.FC = () => {
     <Box>
       <Paper
         component="form"
-        onSubmit={submitChange}
-        // action={link}
+        onSubmit={test}
         sx={{
           width: "100%",
           borderRadius: 10,
@@ -44,10 +44,10 @@ const TextForm: React.FC = () => {
         <Box sx={{ display: "flex", alignItems: "center", p: "5px 12px" }}>
           <BiSearch size="20" />
           <InputBase
+            type="text"
             sx={{ width: 500, ml: 0.5, height: 20 }}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setData(e.target.value)
-            }
+            onChange={linkGoogle}
+            value={placeholder}
           />
           <Tooltip title="Microphone">
             <IconButton size="small">
