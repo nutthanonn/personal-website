@@ -120,7 +120,7 @@ const GoogleAppItem: React.FC = () => {
       <Grid container sx={{ p: 2 }}>
         {Icon1.map((item, index) => {
           return (
-            <Grid item md={4} sm={4} xs={4}>
+            <Grid item md={4} sm={4} xs={4} key={index}>
               <Box
                 className={classes.firstChild}
                 component="a"
@@ -141,7 +141,7 @@ const GoogleAppItem: React.FC = () => {
       <Grid container sx={{ p: 2 }}>
         {Icon2.map((item, index) => {
           return (
-            <Grid item md={4} sm={4} xs={4}>
+            <Grid item md={4} sm={4} xs={4} key={index}>
               <Box
                 className={classes.firstChild}
                 component="a"

@@ -34,6 +34,9 @@ const MenuPage: React.FC = () => {
         <Typography component="a" className={classes.linkText} href="/search">
           Search Page
         </Typography>
+        <Typography component="a" className={classes.linkText} href="/news">
+          News Page
+        </Typography>
         {item.map((item) => {
           return (
             <Typography className={classes.linkText} key={item}>

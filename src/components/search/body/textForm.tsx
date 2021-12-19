@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
+import useSound from "use-sound";
 import { makeStyles } from "@mui/styles";
 
+import activate from "../../../sound/search/sound-microphone-ac.mp3";
+
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
+
 import { BiSearch, BiMicrophone } from "react-icons/bi";
+
+import { observer } from "mobx-react";
+import { SearchStoreImpl } from "../../../store/search/searchStore";
+
+interface TextFormProps {
+  store: SearchStoreImpl;
+}
 
 const useStyles = makeStyles({
   paper: {
@@ -28,6 +40,7 @@ const useStyles = makeStyles({
   paperChildInput: {
     width: 500,
     height: 20,
+    marginLeft: 10,
   },
   boxButton: {
     display: "flex",
@@ -37,71 +50,79 @@ const useStyles = makeStyles({
   },
   buttonSearch: {
     backgroundColor: "#F5F5F5",
-    marginRight: 40,
+    padding: 10,
+    marginRight: 30,
+    borderRadius: 5,
     color: "black",
+    borderColor: "#F5F5F5",
+    "&:hover": {
+      cursor: "pointer",
+      backgroundColor: "#F1F1F1",
+    },
   },
 });
 
-const TextForm: React.FC = () => {
+const TextForm: React.FC<TextFormProps> = observer(({ store }) => {
   const classes = useStyles();
-  const [data, setData] = useState<string>("");
 
   const [placeholder, setPlaceholder] = useState<string>("");
+  const { transcript, listening } = useSpeechRecognition();
+  const [startMicrophone] = useSound(activate, { volume: 0.5 });
 
   const linkGoogle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const txt: string =
-      "https://www.google.com/search?q=" + e.target.value.replaceAll(" ", "+");
-    setData(txt);
     setPlaceholder(e.target.value);
   };
 
-  const test = (e: any) => {
-    if (data) {
-      window.location.href = data;
+  useEffect(() => {
+    if (!listening) {
+      store.change_searchText(transcript);
+    }
+  }, [transcript, listening, store]);
+
+  const sumbitFul = (e: any) => {
+    if (placeholder) {
+      window.location.href =
+        "http://www.google.com/search?q=" +
+        store.SearchText.replaceAll(" ", "+");
     }
     setPlaceholder("");
     e.preventDefault();
   };
 
+  const SpeechRec = () => {
+    SpeechRecognition.startListening();
+    startMicrophone();
+  };
+
   return (
     <Box>
-      <Paper className={classes.paper} elevation={1}>
+      <Box className={classes.paper} component="form">
         <Box className={classes.paperChildBox}>
           <BiSearch size="20" />
           <InputBase
             type="text"
             className={classes.paperChildInput}
             onChange={linkGoogle}
-            value={placeholder}
+            value={listening ? store.SearchText + transcript : store.SearchText}
           />
           <Tooltip title="Microphone">
-            <IconButton size="small">
+            <IconButton size="small" onClick={SpeechRec}>
               <BiMicrophone size="20" />
             </IconButton>
           </Tooltip>
         </Box>
-      </Paper>
+      </Box>
       <Box className={classes.boxButton}>
-        <Button
-          className={classes.buttonSearch}
-          type="submit"
-          variant="text"
-          onClick={test}
-        >
+        <Box className={classes.buttonSearch} onClick={sumbitFul}>
           ค้นหาด้วย Google
-        </Button>
-        <Button
-          className={classes.buttonSearch}
-          type="submit"
-          variant="text"
-          onClick={test}
-        >
+        </Box>
+        <Box className={classes.buttonSearch} onClick={sumbitFul}>
           ดีใจจังค้นแล้วเจอเลย
-        </Button>
+        </Box>
       </Box>
     </Box>
   );
-};
+});
 
 export default TextForm;
 
