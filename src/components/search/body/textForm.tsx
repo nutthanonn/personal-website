@@ -6,11 +6,46 @@ import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
+import { makeStyles } from "@mui/styles";
 
 import { BiSearch, BiMicrophone } from "react-icons/bi";
 
+const useStyles = makeStyles({
+  paper: {
+    borderRadius: 50,
+    border: 3,
+    borderColor: "gray",
+    boxShadow:
+      "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;",
+    marginTop: 30,
+    overflow: "hidden",
+  },
+  paperChildBox: {
+    display: "flex",
+    alignItems: "center",
+    padding: "5px 12px",
+  },
+  paperChildInput: {
+    width: 500,
+    height: 20,
+  },
+  boxButton: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 30,
+  },
+  buttonSearch: {
+    backgroundColor: "#F5F5F5",
+    marginRight: 40,
+    color: "black",
+  },
+});
+
 const TextForm: React.FC = () => {
+  const classes = useStyles();
   const [data, setData] = useState<string>("");
+
   const [placeholder, setPlaceholder] = useState<string>("");
 
   const linkGoogle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,31 +56,21 @@ const TextForm: React.FC = () => {
   };
 
   const test = (e: any) => {
-    window.location.href = data;
+    if (data) {
+      window.location.href = data;
+    }
     setPlaceholder("");
     e.preventDefault();
   };
 
   return (
     <Box>
-      <Paper
-        component="form"
-        onSubmit={test}
-        sx={{
-          width: "100%",
-          borderRadius: 10,
-          borderColor: "gray",
-          boxShadow:
-            "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;",
-          mt: 5,
-        }}
-        elevation={1}
-      >
-        <Box sx={{ display: "flex", alignItems: "center", p: "5px 12px" }}>
+      <Paper className={classes.paper} elevation={1}>
+        <Box className={classes.paperChildBox}>
           <BiSearch size="20" />
           <InputBase
             type="text"
-            sx={{ width: 500, ml: 0.5, height: 20 }}
+            className={classes.paperChildInput}
             onChange={linkGoogle}
             value={placeholder}
           />
@@ -56,18 +81,21 @@ const TextForm: React.FC = () => {
           </Tooltip>
         </Box>
       </Paper>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          mt: 5,
-        }}
-      >
-        <Button sx={{ bgcolor: "#F5F5F5", mr: 5, color: "black" }}>
+      <Box className={classes.boxButton}>
+        <Button
+          className={classes.buttonSearch}
+          type="submit"
+          variant="text"
+          onClick={test}
+        >
           ค้นหาด้วย Google
         </Button>
-        <Button sx={{ bgcolor: "#f5f5f5", color: "black" }}>
+        <Button
+          className={classes.buttonSearch}
+          type="submit"
+          variant="text"
+          onClick={test}
+        >
           ดีใจจังค้นแล้วเจอเลย
         </Button>
       </Box>
