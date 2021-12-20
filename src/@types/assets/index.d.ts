@@ -24,6 +24,11 @@ declare module "*.mp4" {
   const content: string;
   export default content;
 }
+
+declare module "*.mp3" {
+  const src: string;
+  export default src;
+}
 declare module "*.jpeg" {
   const content: string;
   export default content;
