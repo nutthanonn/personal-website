@@ -1,4 +1,5 @@
 import React from "react";
+import PageTool from "../../header/pageTool";
 
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,6 +12,7 @@ const useStyles = makeStyles({
     top: 0,
     left: 0,
     position: "sticky",
+    zIndex: 10,
   },
 });
 
@@ -19,7 +21,10 @@ const Nav: React.FC = () => {
   return (
     <Box className={classes.root}>
       <Toolbar>
-        <Typography variant="h5">Reading</Typography>
+        <Box sx={{ flexGrow: 1 }}>
+          <Typography variant="h5">Reading</Typography>
+        </Box>
+        <PageTool />
       </Toolbar>
     </Box>
   );
