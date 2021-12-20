@@ -18,7 +18,6 @@ const useStyles = makeStyles({
     flexDirection: "column",
   },
 });
-const item: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const MenuPage: React.FC = () => {
   const classes = useStyles();
@@ -34,16 +33,9 @@ const MenuPage: React.FC = () => {
         <Typography component="a" className={classes.linkText} href="/search">
           Search Page
         </Typography>
-        <Typography component="a" className={classes.linkText} href="/news">
-          News Page
+        <Typography component="a" className={classes.linkText} href="/reading">
+          Reading Page
         </Typography>
-        {item.map((item) => {
-          return (
-            <Typography className={classes.linkText} key={item}>
-              page na ja eiei eiei{item}
-            </Typography>
-          );
-        })}
       </Box>
     </Box>
   );

@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import DrawerItem from "./drawerItem";
-import MenuPage from "./menuPage";
+import PageTool from "./pageTool";
 
 import Box from "@mui/material/Box";
-import Popover from "@mui/material/Popover";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 import { AiOutlineMenu } from "react-icons/ai";
 import { makeStyles } from "@mui/styles";
 
@@ -38,20 +36,6 @@ const Nav: React.FC = () => {
   const classes = useStyles();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
-    null
-  );
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-
   return (
     <Box className={classes.root}>
       <CssBaseline />
@@ -59,27 +43,7 @@ const Nav: React.FC = () => {
         <Box className={classes.logo}>
           <Typography>PORTFOLIO</Typography>
         </Box>
-        <Typography className={classes.page} onClick={handleClick}>
-          Page
-          {open ? <MdOutlineArrowDropDown /> : <MdOutlineArrowDropUp />}
-        </Typography>
-        <Popover
-          open={open}
-          anchorEl={anchorEl}
-          onClose={handleClose}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "center",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "right",
-          }}
-        >
-          <Box sx={{ p: 2 }}>
-            <MenuPage />
-          </Box>
-        </Popover>
+        <PageTool />
       </Toolbar>
 
       <Toolbar sx={{ display: { xs: "flex", md: "none", sm: "flex" } }}>

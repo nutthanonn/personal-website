@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import Box from "@mui/material/Box";
 import InputBase from "@mui/material/InputBase";
@@ -65,12 +65,11 @@ const useStyles = makeStyles({
 const TextForm: React.FC<TextFormProps> = observer(({ store }) => {
   const classes = useStyles();
 
-  const [placeholder, setPlaceholder] = useState<string>("");
   const { transcript, listening } = useSpeechRecognition();
   const [startMicrophone] = useSound(activate, { volume: 0.5 });
 
   const linkGoogle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPlaceholder(e.target.value);
+    store.edit_searchText(e.target.value);
   };
 
   useEffect(() => {
@@ -79,13 +78,13 @@ const TextForm: React.FC<TextFormProps> = observer(({ store }) => {
     }
   }, [transcript, listening, store]);
 
-  const sumbitFul = (e: any) => {
-    if (placeholder) {
+  const SumbitFul = (e: any) => {
+    if (store.SearchText.length > 0) {
       window.location.href =
         "http://www.google.com/search?q=" +
         store.SearchText.replaceAll(" ", "+");
     }
-    setPlaceholder("");
+    store.clear_searchText();
     e.preventDefault();
   };
 
@@ -96,7 +95,7 @@ const TextForm: React.FC<TextFormProps> = observer(({ store }) => {
 
   return (
     <Box>
-      <Box className={classes.paper} component="form">
+      <Box className={classes.paper} component="form" onSubmit={SumbitFul}>
         <Box className={classes.paperChildBox}>
           <BiSearch size="20" />
           <InputBase
@@ -113,10 +112,10 @@ const TextForm: React.FC<TextFormProps> = observer(({ store }) => {
         </Box>
       </Box>
       <Box className={classes.boxButton}>
-        <Box className={classes.buttonSearch} onClick={sumbitFul}>
+        <Box className={classes.buttonSearch} onClick={SumbitFul}>
           ค้นหาด้วย Google
         </Box>
-        <Box className={classes.buttonSearch} onClick={sumbitFul}>
+        <Box className={classes.buttonSearch} onClick={SumbitFul}>
           ดีใจจังค้นแล้วเจอเลย
         </Box>
       </Box>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MenuPage from "../../header/menuPage";
+import PageTool from "../../header/pageTool";
 import GoogleAppItem from "./googleAppItem";
 
 import Box from "@mui/material/Box";
@@ -11,7 +11,6 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import { CgMenuGridR } from "react-icons/cg";
 import { makeStyles } from "@mui/styles";
-import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 
 const useStyles = makeStyles({
   boxLeft: {
@@ -51,16 +50,7 @@ const useStyles = makeStyles({
 const Nav: React.FC = () => {
   const classes = useStyles();
 
-  const [pageItem, setPageItem] = useState<HTMLButtonElement | null>(null);
   const [appGoogle, setAppGoogle] = useState<HTMLButtonElement | null>(null);
-
-  const handleClickPage = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setPageItem(event.currentTarget);
-  };
-
-  const handleClosePage = () => {
-    setPageItem(null);
-  };
 
   const handleClickAppGoogle = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAppGoogle(event.currentTarget);
@@ -70,7 +60,6 @@ const Nav: React.FC = () => {
     setAppGoogle(null);
   };
 
-  const openPage = Boolean(pageItem);
   const openAppGoogle = Boolean(appGoogle);
 
   return (
@@ -85,10 +74,7 @@ const Nav: React.FC = () => {
           >
             Home
           </Typography>
-          <Typography className={classes.linkPage} onClick={handleClickPage}>
-            Page
-            {openPage ? <MdOutlineArrowDropDown /> : <MdOutlineArrowDropUp />}
-          </Typography>
+          <PageTool />
         </Box>
         <Box className={classes.boxRight}>
           <Typography
@@ -124,23 +110,6 @@ const Nav: React.FC = () => {
         }}
       >
         <GoogleAppItem />
-      </Popover>
-      <Popover
-        open={openPage}
-        anchorEl={pageItem}
-        onClose={handleClosePage}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-      >
-        <Box sx={{ p: 2 }}>
-          <MenuPage />
-        </Box>
       </Popover>
     </Box>
   );
