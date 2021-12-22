@@ -1,4 +1,4 @@
-import { observable, makeObservable, action } from "mobx";
+import { observable, makeObservable } from "mobx";
 
 export class ReadingStoreImpl {
   @observable Timepickup: number = 0;

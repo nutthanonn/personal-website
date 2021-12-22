@@ -2,12 +2,14 @@ import React from "react";
 import Nav from "../components/reading/header/navbar";
 import TimePickUp from "../components/reading/body/timepickup";
 import SoundBox from "../components/reading/body/soundBox";
+import BgSound from "../components/reading/body/bgSound";
 
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import { makeStyles } from "@mui/styles";
 
 import { ReadingStore } from "../store/reading/readingStore";
+import { DataReadingStore } from "../store/reading/dataReadingStore";
 
 const useStyles = makeStyles({
   root: {
@@ -22,8 +24,9 @@ const Reading: React.FC = () => {
     <Box className={classes.root}>
       <CssBaseline />
       <Nav />
-      <TimePickUp store={ReadingStore} />
+      <TimePickUp store={ReadingStore} startStore={DataReadingStore} />
       <SoundBox />
+      <BgSound store={DataReadingStore} />
     </Box>
   );
 };
