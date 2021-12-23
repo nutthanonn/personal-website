@@ -1,10 +1,13 @@
 import React from "react";
 import PageTool from "../../header/pageTool";
+import ScrollTop from "./scrollTop";
 
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import Fab from "@mui/material/Fab";
 import { makeStyles } from "@mui/styles";
+import { AiOutlineArrowUp } from "react-icons/ai";
 
 const useStyles = makeStyles({
   root: {
@@ -18,6 +21,7 @@ const useStyles = makeStyles({
 
 const Nav: React.FC = () => {
   const classes = useStyles();
+
   return (
     <Box className={classes.root}>
       <Toolbar>
@@ -25,6 +29,11 @@ const Nav: React.FC = () => {
           <Typography variant="h5">Reading</Typography>
         </Box>
         <PageTool />
+        <ScrollTop>
+          <Fab color="secondary" size="large">
+            <AiOutlineArrowUp />
+          </Fab>
+        </ScrollTop>
       </Toolbar>
     </Box>
   );

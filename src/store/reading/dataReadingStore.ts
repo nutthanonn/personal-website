@@ -13,7 +13,7 @@ interface Startprops {
 
 export class DataReadingStoreImpl {
   @observable Time: number = 1;
-  @observable AsmrSong: number[] = [];
+  @observable AsmrSong: string[] = [];
   @observable Background: number = 0;
   @observable timeOut: boolean = false;
 
@@ -27,13 +27,13 @@ export class DataReadingStoreImpl {
   }
 
   @action
-  add_asmrSound(id: number) {
-    this.AsmrSong.push(id);
+  add_asmrSound(img: string) {
+    this.AsmrSong.push(img);
   }
 
   @action
-  filter_asmrSound(id: number) {
-    this.AsmrSong = this.AsmrSong.filter((item) => item !== id);
+  filter_asmrSound(img: string) {
+    this.AsmrSong = this.AsmrSong.filter((item) => item !== img);
   }
 
   @action
@@ -47,21 +47,8 @@ export class DataReadingStoreImpl {
   }
 
   @action
-  count_down(time: number) {}
-
-  @action
   start_focus() {
-    const newData: Startprops[] = [];
-    this.AsmrSong.forEach((id) => {
-      dataSet.forEach((sameId) => {
-        if (id === sameId.id) {
-          newData.push(sameId);
-        }
-      });
-    });
-    this.count_down(this.Time);
-    console.log(newData);
-    return newData;
+    return this.AsmrSong;
   }
 
   @action

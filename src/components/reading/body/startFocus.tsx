@@ -15,12 +15,6 @@ import success from "../../../sound/asmr/successFocus.mp3";
 interface StartFocusProps {
   store: DataReadingStoreImpl;
 }
-interface boxSoundProps {
-  id: number;
-  audio: string;
-  pic: string;
-  title: string;
-}
 
 const useStyles = makeStyles({
   boxInBackDrop: {
@@ -55,7 +49,7 @@ const useStyles = makeStyles({
 const StartFocus: React.FC<StartFocusProps> = observer(({ store }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [boxSound, setBoxSound] = useState<boxSoundProps[]>([]);
+  const [boxSound, setBoxSound] = useState<string[]>([]);
   const [bg, setBg] = useState<string>("");
   const [play] = useSound(success);
 
@@ -121,7 +115,7 @@ const StartFocus: React.FC<StartFocusProps> = observer(({ store }) => {
                 <Box key={index} className={classes.boxInBackDrop}>
                   <Box
                     component="img"
-                    src={item.pic}
+                    src={item}
                     sx={{ width: 50, height: 50 }}
                   />
                 </Box>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../style.css";
 
 import Box from "@mui/material/Box";
@@ -58,7 +58,10 @@ const SoundBoxItem: React.FC<SoundBoxItemProps> = observer(
     const classes = useStyles();
     const [isStart, setIsStart] = useState<boolean>(false);
     const [value, setValue] = useState<number>(100);
-    const [play, { stop }] = useSound(sound, { volume: value * 0.01 });
+    const [play, { stop }] = useSound(sound, {
+      volume: value * 0.01,
+      loop: true,
+    });
     const [isPlay, setIsPlay] = useState<boolean | null>(null);
 
     const handleChange = (event: Event, newValue: number | number[]) => {
@@ -79,23 +82,20 @@ const SoundBoxItem: React.FC<SoundBoxItemProps> = observer(
       }
     };
 
-    const pushBox = (id: number) => {
-      const check = store.AsmrSong.find((item) => item === id);
-      console.log(check);
+    const pushBox = (pic: string) => {
+      const check = store.AsmrSong.find((item) => item === pic);
 
       if (check) {
-        store.filter_asmrSound(id);
-        console.log("kick");
+        store.filter_asmrSound(pic);
       } else {
-        store.add_asmrSound(id);
-        console.log("add");
+        store.add_asmrSound(pic);
       }
     };
 
     return (
       <Box
         sx={{ p: 0.1, m: 2, borderRadius: 10 }}
-        onClick={() => pushBox(id)}
+        onClick={() => pushBox(pic)}
         id={id.toString()}
       >
         <Box className={classes.BoxRoot}>
