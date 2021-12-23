@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import StartFocus from "./startFocus";
+import SelectBeat from "./selectBeat";
 
 import "moment/locale/th";
 import moment from "moment";
@@ -30,7 +31,6 @@ const useStyles = makeStyles({
     flexDirection: "column",
   },
   boxSelect: {
-    width: 400,
     display: "flex",
     justifyContent: "space-around",
     flexDirection: "row",
@@ -70,7 +70,7 @@ const TimePickUp: React.FC<TimePickUpProps> = observer(
             sx={{
               my: 5,
               fontWeight: "lighter",
-              fontSize: 100,
+              fontSize: { md: 100, sm: 70, xs: 20 },
               background:
                 "linear-gradient(to right, #0f0c29, #302b63, #24243e)",
               WebkitBackgroundClip: "text",
@@ -82,13 +82,13 @@ const TimePickUp: React.FC<TimePickUpProps> = observer(
         </Box>
         <Box className={classes.boxHeader}>
           <Box className={classes.boxSelect}>
-            <Box>
+            <Box sx={{ mr: 2 }}>
               <FormControl>
                 <Select
                   value={hour}
                   onChange={handleChangeHour}
                   size="small"
-                  sx={{ width: 150 }}
+                  sx={{ width: { md: 200, sm: 150, xs: 100 } }}
                 >
                   <MenuItem value="0">
                     <BiTimer />
@@ -111,7 +111,7 @@ const TimePickUp: React.FC<TimePickUpProps> = observer(
                   value={minute}
                   onChange={handleChangeMinute}
                   size="small"
-                  sx={{ width: 150 }}
+                  sx={{ width: { md: 200, sm: 150, xs: 100 } }}
                 >
                   <MenuItem value="0">
                     <BiTimeFive />
@@ -141,6 +141,7 @@ const TimePickUp: React.FC<TimePickUpProps> = observer(
         <Box sx={{ my: 5 }}>
           <StartFocus store={DataReadingStore} />
         </Box>
+        <SelectBeat />
       </Box>
     );
   }

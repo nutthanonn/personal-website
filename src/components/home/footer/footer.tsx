@@ -40,11 +40,19 @@ const Footer: React.FC = () => {
         <Typography
           variant="h6"
           color="white"
-          sx={{ display: { md: "flex", sm: "flex", xs: "none" } }}
+          sx={{
+            display: { md: "flex", sm: "flex", xs: "none" },
+          }}
         >
           Nutthanon Studio
         </Typography>
-        <Box className={classes.boxInContainer}>
+        <Box
+          className={classes.boxInContainer}
+          sx={{
+            flexGrow: { md: 0, sm: 1, xs: 1 },
+            justifyContent: { md: "center", sm: "flex-end", xs: "flex-end" },
+          }}
+        >
           <Typography variant="h6" color="white">
             Contact
           </Typography>

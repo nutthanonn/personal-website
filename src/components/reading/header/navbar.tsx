@@ -12,10 +12,6 @@ import { AiOutlineArrowUp } from "react-icons/ai";
 const useStyles = makeStyles({
   root: {
     backgroundColor: "#D3E0DC",
-    top: 0,
-    left: 0,
-    position: "sticky",
-    zIndex: 10,
   },
 });
 
@@ -29,8 +25,9 @@ const Nav: React.FC = () => {
           <Typography variant="h5">Reading</Typography>
         </Box>
         <PageTool />
+        <Box id="back-to-top-anchor" />
         <ScrollTop>
-          <Fab color="secondary" size="large">
+          <Fab color="secondary" size="medium">
             <AiOutlineArrowUp />
           </Fab>
         </ScrollTop>

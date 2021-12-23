@@ -65,14 +65,17 @@ const Title: React.FC = () => {
     <Grid container className={classes.root}>
       <CssBaseline />
       <Grid item md={6} xs={12} sm={12} className={classes.root}>
-        <Box className={classes.gridChild}>
+        <Box className={classes.gridChild} sx={{ mx: 3 }}>
           <motion.div
             variants={animateTitle}
             initial="hidden"
             animate="visible"
           >
-            <Typography variant="h2" color="#00ADB5">
-              สวัสดีครับ
+            <Typography
+              color="#00ADB5"
+              sx={{ fontSize: { md: 40, sm: 40, xs: 30 } }}
+            >
+              Nutthanon Thongcharoen
             </Typography>
           </motion.div>
           <motion.div
@@ -80,7 +83,11 @@ const Title: React.FC = () => {
             initial="hidden"
             animate="visible"
           >
-            <Typography variant="body2" color="#EEEEEE">
+            <Typography
+              variant="body2"
+              color="#EEEEEE"
+              sx={{ fontSize: { md: 20, sm: 20, xs: 15 } }}
+            >
               ผมชื่อนัท อายุ <b>18</b> ปี
               และนี่เป็นเว็ปไซต์ที่ผมสร้างขึ้นเพื่อเป็น Portfolio
               <br />

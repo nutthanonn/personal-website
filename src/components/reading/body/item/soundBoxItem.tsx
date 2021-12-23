@@ -64,6 +64,13 @@ const SoundBoxItem: React.FC<SoundBoxItemProps> = observer(
     });
     const [isPlay, setIsPlay] = useState<boolean | null>(null);
 
+    useEffect(() => {
+      if (isStart) {
+        play();
+      } else {
+        stop();
+      }
+    }, [isStart]);
     const handleChange = (event: Event, newValue: number | number[]) => {
       setValue(newValue as number);
     };
@@ -71,15 +78,14 @@ const SoundBoxItem: React.FC<SoundBoxItemProps> = observer(
     const setSound = (event: React.MouseEvent<HTMLElement>) => {
       const element = document.getElementById(id.toString());
       element?.classList.toggle("play");
+      setIsStart(!isStart);
+
       if (isStart) {
-        stop();
-        setIsStart(false);
         setIsPlay(null);
       } else {
-        play();
-        setIsStart(true);
         setIsPlay(true);
       }
+      pushBox(pic);
     };
 
     const pushBox = (pic: string) => {
@@ -93,16 +99,12 @@ const SoundBoxItem: React.FC<SoundBoxItemProps> = observer(
     };
 
     return (
-      <Box
-        sx={{ p: 0.1, m: 2, borderRadius: 10 }}
-        onClick={() => pushBox(pic)}
-        id={id.toString()}
-      >
+      <Box sx={{ p: 0.1, m: 2, borderRadius: 10 }} id={id.toString()}>
         <Box className={classes.BoxRoot}>
           <Box
             component="img"
             src={pic}
-            sx={{ width: 150, height: 150 }}
+            sx={{ width: 170, height: 160 }}
             onClick={setSound}
           />
           {!isPlay && (
