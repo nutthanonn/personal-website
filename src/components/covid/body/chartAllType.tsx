@@ -60,12 +60,6 @@ const ChartAllType: React.FC<ChartAllTypeProps> = observer(({ store }) => {
         backgroundColor: "rgba(73, 73, 73, 0.3)",
         borderColor: "#FAF3F3",
       },
-      // {
-      //   label: "ผู้ติดเชื้อรายใหม่",
-      //   data: [33, 25, 35, 51, 54, 76],
-      //   fill: false,
-      //   borderColor: "#3B14A7",
-      // },
     ],
   };
 
