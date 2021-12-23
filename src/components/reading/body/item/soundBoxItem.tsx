@@ -70,7 +70,7 @@ const SoundBoxItem: React.FC<SoundBoxItemProps> = observer(
       } else {
         stop();
       }
-    }, [isStart]);
+    }, [isStart, play, stop]);
     const handleChange = (event: Event, newValue: number | number[]) => {
       setValue(newValue as number);
     };
