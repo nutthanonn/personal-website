@@ -33,7 +33,7 @@ const SelectBeat: React.FC = () => {
     } else {
       stop();
     }
-  }, [open]);
+  }, [open, play]);
 
   return (
     <Box>
