@@ -132,7 +132,12 @@ const TimePickUp: React.FC<TimePickUpProps> = observer(
         </Box>
         <Box sx={{ mt: 5 }}>
           {time && (
-            <Typography variant="h4">
+            <Typography
+              sx={{
+                fontSize: { md: 30, sm: 30, xs: 20 },
+                fontWeight: "lighter",
+              }}
+            >
               ตั้งเเต่ {moment().format("LT")} ถึง {time}
             </Typography>
           )}
