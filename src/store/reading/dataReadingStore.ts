@@ -5,7 +5,7 @@ import narutoBg from "../../video/naruto-bg.mp4";
 import sasukeBg from "../../video/sasuke-study.mp4";
 
 export class DataReadingStoreImpl {
-  @observable Time: number = 0;
+  @observable Time: number = 60;
   @observable AsmrSong: string[] = [];
   @observable Background: number = 0;
   @observable timeOut: boolean = false;
