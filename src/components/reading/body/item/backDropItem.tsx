@@ -37,6 +37,16 @@ const useStyles = makeStyles({
     opacity: 0.7,
     fontWeight: "lighter",
   },
+  boxTimer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    borderRadius: 70,
+    opacity: 0.75,
+    zIndex: 5,
+    background: "black",
+    paddingInline: 30,
+  },
 });
 
 const BackdropItem: React.FC<BackdropItem> = ({ time, boxSounds }) => {
@@ -56,23 +66,11 @@ const BackdropItem: React.FC<BackdropItem> = ({ time, boxSounds }) => {
 
   return (
     <div>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          mt: 50,
-          zIndex: 5,
-          background: "black",
-          px: 5,
-          borderRadius: 20,
-          opacity: 0.75,
-        }}
-      >
+      <Box sx={{ mt: 50 }} className={classes.boxTimer}>
         <Box>
           <Typography
             className={classes.timeCount}
-            sx={{ fontSize: { md: 50, sm: 40, xs: 20 } }}
+            sx={{ fontSize: { md: 50, sm: 40, xs: 20 }, mx: 5 }}
           >
             {timer}
           </Typography>

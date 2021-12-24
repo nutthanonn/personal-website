@@ -7,7 +7,7 @@ import Tooltip from "@mui/material/Tooltip";
 import useSound from "use-sound";
 import { makeStyles } from "@mui/styles";
 
-import activate from "../../../sound/search/sound-microphone-ac.mp3";
+import activate from "../../../assets/sound/search/sound-microphone-ac.mp3";
 
 import SpeechRecognition, {
   useSpeechRecognition,

@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
 import { motion } from "framer-motion";
 import Lottie from "react-lottie";
-import animationAvatar from "../../../lottiesAnimation/home/lottie-profile.json";
+import animationAvatar from "../../../assets/lottiesAnimation/home/lottie-profile.json";
 
 const useStyles = makeStyles({
   root: {

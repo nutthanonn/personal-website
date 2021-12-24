@@ -29,6 +29,8 @@ node_modules
 .github
 
 
-/src/video
+/src/assets/sound
+/src/assets/video
+
 
 

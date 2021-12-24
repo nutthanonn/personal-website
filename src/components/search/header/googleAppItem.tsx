@@ -5,26 +5,25 @@ import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 
-import GoogleTranslate from "../../../logo/searchPage/google-translate.png";
-import GoogleCalendar from "../../../logo/searchPage/google-calendar.png";
-import GoogleDrive from "../../../logo/searchPage/google-drive.png";
-import Googlemaps from "../../../logo/searchPage/google-maps.png";
-import GooglePhotos from "../../../logo/searchPage/google-photos.png";
-import GoogleNews from "../../../logo/searchPage/google-news.png";
-import GoogleIcons from "../../../logo/searchPage/google-icons.png";
+import GoogleTranslate from "../../../assets/logo/searchPage/google-translate.png";
+import GoogleCalendar from "../../../assets/logo/searchPage/google-calendar.png";
+import GoogleDrive from "../../../assets/logo/searchPage/google-drive.png";
+import Googlemaps from "../../../assets/logo/searchPage/google-maps.png";
+import GooglePhotos from "../../../assets/logo/searchPage/google-photos.png";
+import GoogleNews from "../../../assets/logo/searchPage/google-news.png";
+import GoogleIcons from "../../../assets/logo/searchPage/google-icons.png";
 
 //assets
 
-import GoogleDocs from "../../../logo/searchPage/google-docs.png";
-import GoogleClassroom from "../../../logo/searchPage/google-classroom.png";
-import GoogleEarth from "../../../logo/searchPage/google-earth.png";
-import GoogleForms from "../../../logo/searchPage/google-forms.png";
-import GoogleJamboard from "../../../logo/searchPage/google-jamboard.png";
-import GoogleSheets from "../../../logo/searchPage/google-sheets.png";
-import GoogleSlide from "../../../logo/searchPage/google-slide.png";
-import GoogleTravel from "../../../logo/searchPage/google-travel.png";
-
-import Youtube from "../../../logo/searchPage/youtube.png";
+import GoogleDocs from "../../../assets/logo/searchPage/google-docs.png";
+import GoogleClassroom from "../../../assets/logo/searchPage/google-classroom.png";
+import GoogleEarth from "../../../assets/logo/searchPage/google-earth.png";
+import GoogleForms from "../../../assets/logo/searchPage/google-forms.png";
+import GoogleJamboard from "../../../assets/logo/searchPage/google-jamboard.png";
+import GoogleSheets from "../../../assets/logo/searchPage/google-sheets.png";
+import GoogleSlide from "../../../assets/logo/searchPage/google-slide.png";
+import GoogleTravel from "../../../assets/logo/searchPage/google-travel.png";
+import Youtube from "../../../assets/logo/searchPage/youtube.png";
 import { makeStyles } from "@mui/styles";
 
 const Icon1: string[] = [

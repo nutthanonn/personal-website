@@ -1,26 +1,26 @@
-import asmrBirdIcon from "../../icon/asmr/asmr-bird.png";
-import asmrBeachUmbrellaIcon from "../../icon/asmr/asmr-beach-umbrella.png";
-import asmrBoatingIcon from "../../icon/asmr/asmr-boating.png";
-import asmrCricketIcon from "../../icon/asmr/asmr-cricket.png";
-import asmrFireIcon from "../../icon/asmr/asmr-fire.png";
-import asmrJungleIcon from "../../icon/asmr/asmr-jungle.png";
-import asmrSmallStreamFlowingIcon from "../../icon/asmr/asmr-small-stream-flowing.png";
-import asmrThunderIcon from "../../icon/asmr/asmr-thunder.png";
-import asmrWalkinForestIcon from "../../icon/asmr/asmr-walk-in-forest.png";
-import asmrWindIcon from "../../icon/asmr/asmr-wind.png";
-import asmrRain from "../../icon/asmr/asmr-rain.png";
+import asmrBirdIcon from "../../assets/icon/asmr/asmr-bird.png";
+import asmrBeachUmbrellaIcon from "../../assets/icon/asmr/asmr-beach-umbrella.png";
+import asmrBoatingIcon from "../../assets/icon/asmr/asmr-boating.png";
+import asmrCricketIcon from "../../assets/icon/asmr/asmr-cricket.png";
+import asmrFireIcon from "../../assets/icon/asmr/asmr-fire.png";
+import asmrJungleIcon from "../../assets/icon/asmr/asmr-jungle.png";
+import asmrSmallStreamFlowingIcon from "../../assets/icon/asmr/asmr-small-stream-flowing.png";
+import asmrThunderIcon from "../../assets/icon/asmr/asmr-thunder.png";
+import asmrWalkinForestIcon from "../../assets/icon/asmr/asmr-walk-in-forest.png";
+import asmrWindIcon from "../../assets/icon/asmr/asmr-wind.png";
+import asmrRain from "../../assets/icon/asmr/asmr-rain.png";
 
-import fireSound from "../../sound/asmr/1 - Fire.mp3";
-import beachSound from "../../sound/asmr/3 - beach.mp3";
-import smallStreamFlowing from "../../sound/asmr/5 - Small Stream Flowing.mp3";
-import thunderSound from "../../sound/asmr/6 - Thunder.mp3";
-import birdSound from "../../sound/asmr/9 - bird.mp3";
-import boatingWaterSplashing from "../../sound/asmr/11 - boating water splashing.mp3";
-import walkingAndSplash from "../../sound/asmr/12 - walking and splashing water.mp3";
-import jungleAtmosphereNight from "../../sound/asmr/14 - Jungle Atmosphere Night.mp3";
-import cricketswithRoadandForest from "../../sound/asmr/19 - Crickets with Road and Forest.mp3";
-import windSound from "../../sound/asmr/wind.mp3";
-import RainSound from "../../sound/asmr/rain.mp3";
+import fireSound from "../../assets/sound/asmr/1 - Fire.mp3";
+import beachSound from "../../assets/sound/asmr/3 - beach.mp3";
+import smallStreamFlowing from "../../assets/sound/asmr/5 - Small Stream Flowing.mp3";
+import thunderSound from "../../assets/sound/asmr/6 - Thunder.mp3";
+import birdSound from "../../assets/sound/asmr/9 - bird.mp3";
+import boatingWaterSplashing from "../../assets/sound/asmr/11 - boating water splashing.mp3";
+import walkingAndSplash from "../../assets/sound/asmr/12 - walking and splashing water.mp3";
+import jungleAtmosphereNight from "../../assets/sound/asmr/14 - Jungle Atmosphere Night.mp3";
+import cricketswithRoadandForest from "../../assets/sound/asmr/19 - Crickets with Road and Forest.mp3";
+import windSound from "../../assets/sound/asmr/wind.mp3";
+import RainSound from "../../assets/sound/asmr/rain.mp3";
 
 interface dataSetProps {
   id: number;
