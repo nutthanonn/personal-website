@@ -4,15 +4,8 @@ import aniamteBg from "../../video/animate-study.mp4";
 import narutoBg from "../../video/naruto-bg.mp4";
 import sasukeBg from "../../video/sasuke-study.mp4";
 
-interface Startprops {
-  id: number;
-  audio: string;
-  pic: string;
-  title: string;
-}
-
 export class DataReadingStoreImpl {
-  @observable Time: number = 1;
+  @observable Time: number = 0;
   @observable AsmrSong: string[] = [];
   @observable Background: number = 0;
   @observable timeOut: boolean = false;
@@ -23,7 +16,7 @@ export class DataReadingStoreImpl {
 
   @action
   change_time(time: number) {
-    this.Time = time;
+    this.Time = time * 60;
   }
 
   @action
@@ -55,6 +48,11 @@ export class DataReadingStoreImpl {
   get_bg() {
     const animate = [aniamteBg, narutoBg, sasukeBg];
     return animate[this.Background];
+  }
+
+  @action
+  return_time() {
+    return this.Time;
   }
 }
 

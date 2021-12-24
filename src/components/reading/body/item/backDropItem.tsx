@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Box from "@mui/material/Box";
-import Countdown from "react-countdown";
+import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
 
 interface BackdropItem {
   time: number;
-  url: string;
   boxSounds: string[];
-  complete: () => void;
 }
 
 const useStyles = makeStyles({
@@ -42,13 +40,21 @@ const useStyles = makeStyles({
   },
 });
 
-const BackdropItem: React.FC<BackdropItem> = ({
-  time,
-  url,
-  boxSounds,
-  complete,
-}) => {
+const BackdropItem: React.FC<BackdropItem> = ({ time, boxSounds }) => {
   const classes = useStyles();
+  const [timer, setTimer] = useState<string>("00:00");
+  const [date, newData] = useState<Date | null>(null);
+
+  useEffect(() => {
+    //secound
+    const minute = Math.floor(time / 60);
+    const secound = time - minute * 60;
+    const compressTime = `${minute.toString().padStart(2, "0")}:${secound
+      .toString()
+      .padStart(2, "0")}`;
+    setTimer(compressTime);
+  }, [time]);
+
   return (
     <div>
       <Box
@@ -65,12 +71,7 @@ const BackdropItem: React.FC<BackdropItem> = ({
         }}
       >
         <Box>
-          <Countdown
-            date={Date.now() + time * 60000}
-            daysInHours={true}
-            className={classes.timeCount}
-            onComplete={complete}
-          />
+          <Typography className={classes.timeCount}>{timer}</Typography>
         </Box>
         <Box className={classes.boxAsmr}>
           {boxSounds.map((item, index) => {
