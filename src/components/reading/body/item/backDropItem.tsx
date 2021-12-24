@@ -30,7 +30,6 @@ const useStyles = makeStyles({
   },
 
   timeCount: {
-    fontSize: 60,
     color: "black",
     background: "linear-gradient(to right, #0052d4, #4364f7, #6fb1fc)",
     WebkitBackgroundClip: "text",
@@ -71,7 +70,12 @@ const BackdropItem: React.FC<BackdropItem> = ({ time, boxSounds }) => {
         }}
       >
         <Box>
-          <Typography className={classes.timeCount}>{timer}</Typography>
+          <Typography
+            className={classes.timeCount}
+            sx={{ fontSize: { md: 50, sm: 40, xs: 20 } }}
+          >
+            {timer}
+          </Typography>
         </Box>
         <Box className={classes.boxAsmr}>
           {boxSounds.map((item, index) => {
