@@ -60,7 +60,7 @@ const SelectBeat: React.FC = () => {
 
   const endBeat = () => {
     if (url !== "https://youtu.be/8Th4BWkfFDE" || open) {
-      const number = Math.floor(Math.random() * (lofiBeat.length - 1));
+      const number = Math.floor(Math.random() * lofiBeat.length);
       setUrl(lofiBeat[number]);
     }
   };
