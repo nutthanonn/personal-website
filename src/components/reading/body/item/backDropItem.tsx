@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
 
-interface BackdropItem {
+interface BackdropItemProps {
   time: number;
   boxSounds: string[];
 }
@@ -49,10 +49,9 @@ const useStyles = makeStyles({
   },
 });
 
-const BackdropItem: React.FC<BackdropItem> = ({ time, boxSounds }) => {
+const BackdropItem: React.FC<BackdropItemProps> = ({ time, boxSounds }) => {
   const classes = useStyles();
   const [timer, setTimer] = useState<string>("00:00");
-  const [date, newData] = useState<Date | null>(null);
 
   useEffect(() => {
     //secound
