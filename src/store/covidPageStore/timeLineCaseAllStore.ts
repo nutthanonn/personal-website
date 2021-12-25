@@ -1,5 +1,5 @@
-import { makeObservable, action, observable } from "mobx";
 import { configure } from "mobx";
+import { makeObservable, action, observable } from "mobx";
 import { TimeLineCaseAllInterfaceProps } from "../../interface/covidPage/timeLineCaseAllInterface";
 import { timeLineCaseByProvinceInterfaceProps } from "../../interface/covidPage/timeLineCaseByProvinceInterface";
 import { fetchData } from "../../api/covidPageApi/timeLineCaseAll";

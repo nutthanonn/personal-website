@@ -1,8 +1,7 @@
 import { makeObservable, action, observable } from "mobx";
-import { dataSet } from "../../data/asmr/dataSet";
-import aniamteBg from "../../video/animate-study.mp4";
-import narutoBg from "../../video/naruto-bg.mp4";
-import sasukeBg from "../../video/sasuke-study.mp4";
+import aniamteBg from "../../assets/video/animate-study.mp4";
+import narutoBg from "../../assets/video/naruto-bg.mp4";
+import sasukeBg from "../../assets/video/sasuke-study.mp4";
 
 export class DataReadingStoreImpl {
   @observable Time: number = 60;
