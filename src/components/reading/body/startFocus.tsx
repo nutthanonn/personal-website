@@ -9,6 +9,12 @@ import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
 
+import Lottie from "react-lottie";
+import animationSuccess from "../../../assets/lottiesAnimation/reading/lottie-success-celebration.json";
+
+import useSound from "use-sound";
+import sucess from "../../../assets/sound/asmr/successFocus.mp3";
+
 import { observer } from "mobx-react";
 import { DataReadingStoreImpl } from "../../../store/reading/dataReadingStore";
 
@@ -40,6 +46,8 @@ const StartFocus: React.FC<StartFocusProps> = observer(({ store }) => {
   const [bg, setBg] = useState<string>("");
   const [timeAll, setTimeAll] = useState<number>(store.Time);
   const [check, setCheck] = useState<boolean>(true);
+  const [successBg, setSuccessBg] = useState<boolean>(false);
+  const [play] = useSound(sucess);
 
   const [openModal, setOpenModal] = React.useState(false);
   const handleOpenModal = () => setOpenModal(true);
@@ -49,12 +57,16 @@ const StartFocus: React.FC<StartFocusProps> = observer(({ store }) => {
     var time = store.Time;
     const startTime = setInterval(() => {
       time -= 1;
-      console.log(time);
       setTimeAll(time);
       if (time <= 0 || check === false) {
+        clearInterval(startTime);
+        play();
         setOpen(false);
         setTimeAll(0);
-        clearInterval(startTime);
+        setSuccessBg(true);
+        setTimeout(() => {
+          setSuccessBg(false);
+        }, 1000);
       }
     }, 1000);
   };
@@ -78,36 +90,44 @@ const StartFocus: React.FC<StartFocusProps> = observer(({ store }) => {
     handleCloseModal();
   };
 
+  const defaultAnimation = {
+    loop: true,
+    autoplay: true,
+    animationData: animationSuccess,
+  };
+
   return (
     <Box>
       <Button
         variant="outlined"
         size="large"
         sx={{ bgcolor: "white", borderColor: "pink" }}
-        onClick={handleOpenModal}
+        onClick={check ? handleOpenModal : handleToggle}
       >
         Start focus
       </Button>
-      <Modal
-        open={openModal}
-        onClose={handleCloseModal}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box className={classes.boxModal}>
-          <Typography sx={{ fontSize: { md: 20, sm: 15, xs: 10 } }}>
-            เมื่อทำการกด Start จะไม่สามารถเปลี่ยนเวลาได้ กรุณาตรวจสอบเวลาให้ดี
-          </Typography>
-          <Button
-            onClick={handleToggle}
-            variant="text"
-            size="large"
-            sx={{ bgcolor: "white", borderColor: "pink" }}
-          >
-            Start focus
-          </Button>
-        </Box>
-      </Modal>
+      {check && (
+        <Modal
+          open={openModal}
+          onClose={handleCloseModal}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box className={classes.boxModal}>
+            <Typography sx={{ fontSize: { md: 20, sm: 15, xs: 10 } }}>
+              เมื่อทำการกด Start จะไม่สามารถเปลี่ยนเวลาได้ กรุณาตรวจสอบเวลาให้ดี
+            </Typography>
+            <Button
+              onClick={handleToggle}
+              variant="text"
+              size="large"
+              sx={{ bgcolor: "white", borderColor: "pink" }}
+            >
+              Start focus
+            </Button>
+          </Box>
+        </Modal>
+      )}
       <Backdrop
         sx={{
           color: "#fff",
@@ -128,6 +148,15 @@ const StartFocus: React.FC<StartFocusProps> = observer(({ store }) => {
           />
         </Box>
         <BackdropItem time={timeAll} boxSounds={boxSound} />
+      </Backdrop>
+      <Backdrop
+        sx={{
+          color: "#fff",
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+        }}
+        open={successBg}
+      >
+        <Lottie options={defaultAnimation} isClickToPauseDisabled={true} />
       </Backdrop>
     </Box>
   );

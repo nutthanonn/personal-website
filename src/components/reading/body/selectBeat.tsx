@@ -4,10 +4,10 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import Slider from "@mui/material/Slider";
-import useSound from "use-sound";
+import ReactPlayer from "react-player/youtube";
 import { makeStyles } from "@mui/styles";
-
 import { BsVolumeDownFill, BsVolumeUpFill } from "react-icons/bs";
+import TextField from "@mui/material/TextField";
 
 const useStyles = makeStyles({
   boxForm: {
@@ -15,36 +15,65 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
   },
+  urlControl: {
+    display: "flex",
+    alignItems: "flex-end",
+  },
 });
+
+const lofiBeat: string[] = [
+  "https://youtu.be/8Th4BWkfFDE",
+  "https://youtu.be/msNh_Ou_nwU",
+  "https://youtu.be/5PRFQ_FnyM8",
+  "https://youtu.be/Cx1qHKE_y9Q",
+  "https://youtu.be/PFq5ZRRAjY4",
+  "https://youtu.be/xVf4Zk8CBj0",
+  "https://youtu.be/d3ivPRg8XfI",
+  "https://youtu.be/IUYaCe95dxw",
+  "https://youtu.be/RqA8RFyofvk",
+  "https://youtu.be/QCzRXx1DA_U",
+  "https://youtu.be/IMgyOORAUTs",
+];
 
 const SelectBeat: React.FC = () => {
   const classes = useStyles();
   const [value, setValue] = useState<number>(100);
-  const [play, { stop }] = useSound("", { loop: true, volume: value * 0.01 });
   const [open, setOpen] = useState<boolean>(false);
+  const [url, setUrl] = useState<string>("");
 
-  const handleChange = (event: Event, newValue: number | number[]) => {
+  const handleChangeVolume = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number);
   };
 
-  useEffect(() => {
-    if (open) {
-      play();
+  const handleChangeUrl = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUrl(e.target.value);
+  };
+
+  const startSong = (e: React.SyntheticEvent) => {
+    if (url) {
+      setOpen(!open);
     } else {
-      stop();
+      setUrl("https://youtu.be/8Th4BWkfFDE");
+      setOpen(!open);
     }
-  }, [open, play]);
+  };
+
+  const endBeat = () => {
+    if (url !== "https://youtu.be/8Th4BWkfFDE" || open) {
+      const number = Math.floor(Math.random() * (lofiBeat.length - 1));
+      setUrl(lofiBeat[number]);
+    }
+  };
 
   return (
     <Box>
       <FormGroup>
         <Box className={classes.boxForm}>
           <FormControlLabel
-            control={<Switch />}
+            control={<Switch color="warning" />}
             label="Beat Sound"
-            // onChange={() => setOpen(!open)}
+            onChange={startSong}
             defaultChecked
-            color="warning"
             labelPlacement="top"
           />
         </Box>
@@ -52,7 +81,7 @@ const SelectBeat: React.FC = () => {
       <Box className={classes.boxForm}>
         <BsVolumeDownFill />
         <Slider
-          onChange={handleChange}
+          onChange={handleChangeVolume}
           value={value}
           size="small"
           defaultValue={70}
@@ -62,6 +91,24 @@ const SelectBeat: React.FC = () => {
         />
         <BsVolumeUpFill />
       </Box>
+      <Box className={classes.urlControl}>
+        <TextField
+          label="url youtube"
+          variant="standard"
+          autoComplete="off"
+          color="warning"
+          onChange={handleChangeUrl}
+          value={url}
+        />
+      </Box>
+      <ReactPlayer
+        url={url}
+        width="0"
+        height="0"
+        volume={value * 0.01}
+        playing={open}
+        onEnded={endBeat}
+      />
     </Box>
   );
 };
