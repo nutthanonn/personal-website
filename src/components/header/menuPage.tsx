@@ -30,11 +30,11 @@ const MenuPage: React.FC = () => {
         <Typography component="a" className={classes.linkText} href="/covid19">
           Covid19 Page
         </Typography>
-        <Typography component="a" className={classes.linkText} href="/search">
-          Search Page
-        </Typography>
         <Typography component="a" className={classes.linkText} href="/reading">
           Reading Page
+        </Typography>
+        <Typography component="a" className={classes.linkText} href="/search">
+          Search Page
         </Typography>
       </Box>
     </Box>

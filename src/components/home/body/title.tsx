@@ -58,6 +58,7 @@ const Title: React.FC = () => {
     loop: true,
     autoplay: true,
     animationData: animationAvatar,
+    onclick: "none",
   };
 
   const classes = useStyles();
@@ -101,7 +102,11 @@ const Title: React.FC = () => {
         md={6}
         sx={{ display: { md: "flex", sm: "none", xs: "none" } }}
       >
-        <Lottie options={defaultAnimation} width={400} />
+        <Lottie
+          options={defaultAnimation}
+          width={400}
+          isClickToPauseDisabled={true}
+        />
       </Grid>
     </Grid>
   );

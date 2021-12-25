@@ -19,12 +19,12 @@ const Item: ItemProps[] = [
     path: "/covid19",
   },
   {
-    name: "Search Page",
-    path: "/search",
-  },
-  {
     name: "Reading Page",
     path: "reading",
+  },
+  {
+    name: "Search Page",
+    path: "/search",
   },
 ];
 

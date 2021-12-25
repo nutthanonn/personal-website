@@ -13,7 +13,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Backdrop from "@mui/material/Backdrop";
 import Lottie from "react-lottie";
-import animationBackdrop from "../lottiesAnimation/lottie-stay-safe-stay-home.json";
+import animationBackdrop from "../assets/lottiesAnimation/lottie-stay-safe-stay-home.json";
 import { makeStyles } from "@mui/styles";
 
 import { DialyStore } from "../store/covidPageStore/dialyStore";
@@ -55,7 +55,7 @@ const CovidToday: React.FC = () => {
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={open}
       >
-        <Lottie options={defaultAnimation} />
+        <Lottie options={defaultAnimation} isClickToPauseDisabled={true} />
       </Backdrop>
       <Container>
         <Typography

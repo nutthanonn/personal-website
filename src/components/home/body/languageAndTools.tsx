@@ -46,6 +46,7 @@ const LanguageAndTools: React.FC = () => {
     <AiFillGithub size="30" color="black" />,
     <IoLogoNodejs size="30" color="#3C873A" />,
   ];
+
   const languageAndToolsText: string[] = [
     "ReactJS",
     "HTML5",

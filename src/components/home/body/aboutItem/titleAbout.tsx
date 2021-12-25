@@ -2,8 +2,8 @@ import React from "react";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import NutthanonProfile from "../../../../assets/images/nutthanonProfile.jpeg";
 import Avatar from "@mui/material/Avatar";
+import NutthanonProfile from "../../../../assets/images/nutthanonProfile.jpeg";
 import { makeStyles } from "@mui/styles";
 import { motion } from "framer-motion";
 

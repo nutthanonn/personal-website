@@ -11,7 +11,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { makeStyles } from "@mui/styles";
 
 import Lottie from "react-lottie";
-import animationData from "../lottiesAnimation/lottie-welcome.json";
+import animationData from "../assets/lottiesAnimation/lottie-welcome.json";
 
 import { ReadingStore } from "../store/reading/readingStore";
 import { DataReadingStore } from "../store/reading/dataReadingStore";
@@ -44,7 +44,7 @@ const Reading: React.FC = () => {
         open={open}
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
-        <Lottie options={defaultAnimation} />
+        <Lottie options={defaultAnimation} isClickToPauseDisabled={true} />
       </Backdrop>
       <CssBaseline />
       <Nav />

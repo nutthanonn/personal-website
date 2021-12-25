@@ -4,7 +4,7 @@ import Title from "../components/home/body/title";
 import AboutWebsite from "../components/home/body/aboutWebsite";
 import LanguageAndTools from "../components/home/body/languageAndTools";
 import Footer from "../components/home/footer/footer";
-import carBackDrop from "../lottiesAnimation/lottie-car.json";
+import carBackDrop from "../assets/lottiesAnimation/lottie-car.json";
 
 import { makeStyles } from "@mui/styles";
 import Box from "@mui/material/Box";
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
         open={open}
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
-        <Lottie options={animationData} />
+        <Lottie options={animationData} isClickToPauseDisabled={true} />
       </Backdrop>
       <CssBaseline />
       <Title />
