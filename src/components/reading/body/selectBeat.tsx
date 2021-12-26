@@ -19,6 +19,11 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "flex-end",
   },
+  slider: {
+    width: 130,
+    marginInline: 10,
+    color: "black",
+  },
 });
 
 const lofiBeat: string[] = [
@@ -53,13 +58,13 @@ const SelectBeat: React.FC = () => {
     if (url) {
       setOpen(!open);
     } else {
-      setUrl("https://youtu.be/8Th4BWkfFDE");
+      setUrl(lofiBeat[Math.floor(Math.random() * lofiBeat.length)]);
       setOpen(!open);
     }
   };
 
   const endBeat = () => {
-    if (url !== "https://youtu.be/8Th4BWkfFDE" || open) {
+    if (!(url in lofiBeat) || open) {
       const number = Math.floor(Math.random() * lofiBeat.length);
       setUrl(lofiBeat[number]);
     }
@@ -87,7 +92,7 @@ const SelectBeat: React.FC = () => {
           defaultValue={70}
           aria-label="Small"
           valueLabelDisplay="auto"
-          sx={{ width: 130, mx: 1, color: "black" }}
+          className={classes.slider}
         />
         <BsVolumeUpFill />
       </Box>

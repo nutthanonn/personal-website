@@ -24,7 +24,7 @@ interface TimePickUpProps {
 
 const useStyles = makeStyles({
   root: {
-    height: "85vh",
+    height: "90vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

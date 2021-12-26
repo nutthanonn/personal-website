@@ -8,6 +8,7 @@ const useStyles = makeStyles({
   root: {
     backgroundColor: "#CABBE9",
     marginTop: 200,
+    zIndex: 3,
   },
 });
 

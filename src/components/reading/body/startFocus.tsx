@@ -37,6 +37,12 @@ const useStyles = makeStyles({
     backgroundColor: "white",
     borderRadius: 10,
   },
+  titleTime: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
+  },
 });
 
 const StartFocus: React.FC<StartFocusProps> = observer(({ store }) => {
@@ -61,9 +67,10 @@ const StartFocus: React.FC<StartFocusProps> = observer(({ store }) => {
       if (time <= 0 || check === false) {
         clearInterval(startTime);
         play();
+        setCheck(true);
         setOpen(false);
-        setTimeAll(0);
         setSuccessBg(true);
+        setTimeAll(0);
         setTimeout(() => {
           setSuccessBg(false);
         }, 1000);
@@ -114,7 +121,13 @@ const StartFocus: React.FC<StartFocusProps> = observer(({ store }) => {
           aria-describedby="modal-modal-description"
         >
           <Box className={classes.boxModal}>
-            <Typography sx={{ fontSize: { md: 20, sm: 15, xs: 10 } }}>
+            <Typography
+              sx={{ fontSize: { md: 20, sm: 15, xs: 10 } }}
+              className={classes.titleTime}
+            >
+              <div>
+                เวลาทั้งหมด <b>{store.Time / 60}</b> นาที
+              </div>
               เมื่อทำการกด Start จะไม่สามารถเปลี่ยนเวลาได้ กรุณาตรวจสอบเวลาให้ดี
             </Typography>
             <Button
