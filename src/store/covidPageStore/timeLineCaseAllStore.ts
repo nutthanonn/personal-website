@@ -109,7 +109,11 @@ export class TimeLineCaseAllImpl {
   @action
   change_type(type: string) {
     this.TypeChart = type;
-    this.default_month_data(this.Province);
+    if (this.Province === "defaultProvince") {
+      this.default_month_data();
+    } else {
+      this.default_month_data(this.Province);
+    }
   }
 }
 
