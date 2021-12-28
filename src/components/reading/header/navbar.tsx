@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: "60%",
     padding: 20,
     background: "#A1EAFB",
   },

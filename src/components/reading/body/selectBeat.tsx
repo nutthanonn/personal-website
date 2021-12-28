@@ -22,7 +22,6 @@ const useStyles = makeStyles({
   slider: {
     width: 130,
     marginInline: 10,
-    color: "black",
   },
 });
 
@@ -93,6 +92,7 @@ const SelectBeat: React.FC = () => {
           aria-label="Small"
           valueLabelDisplay="auto"
           className={classes.slider}
+          color="secondary"
         />
         <BsVolumeUpFill />
       </Box>
