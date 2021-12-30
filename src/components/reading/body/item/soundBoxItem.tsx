@@ -53,6 +53,19 @@ const animationSound = {
   },
 };
 
+const animationWhileInview = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 2,
+      type: "spring",
+    },
+  },
+};
+
 const SoundBoxItem: React.FC<SoundBoxItemProps> = observer(
   ({ id, sound, pic, title, store }) => {
     const classes = useStyles();
@@ -100,44 +113,50 @@ const SoundBoxItem: React.FC<SoundBoxItemProps> = observer(
 
     return (
       <Box sx={{ p: 0.1, m: 2, borderRadius: 10 }} id={id.toString()}>
-        <Box className={classes.BoxRoot}>
-          <Box
-            component="img"
-            src={pic}
-            sx={{ width: 170, height: 160 }}
-            onClick={setSound}
-          />
-          {!isPlay && (
-            <motion.div
-              animate={{ opacity: 1 }}
-              initial={{ opacity: 0 }}
-              transition={{ duration: 1 }}
-              className={classes.boxControl}
-            >
-              <Typography variant="h5">{title}</Typography>
-            </motion.div>
-          )}
-          {isPlay && (
-            <motion.div
-              variants={animationSound}
-              animate="visible"
-              initial="hidden"
-              className={classes.boxControl}
-            >
-              <BsVolumeDownFill />
-              <Slider
-                onChange={handleChange}
-                value={value}
-                size="small"
-                defaultValue={70}
-                aria-label="Small"
-                valueLabelDisplay="auto"
-                sx={{ width: 130, mx: 1, color: "#CABBE9" }}
-              />
-              <BsVolumeUpFill />
-            </motion.div>
-          )}
-        </Box>
+        <motion.div
+          variants={animationWhileInview}
+          whileInView="visible"
+          initial="hidden"
+        >
+          <Box className={classes.BoxRoot}>
+            <Box
+              component="img"
+              src={pic}
+              sx={{ width: 170, height: 160 }}
+              onClick={setSound}
+            />
+            {!isPlay && (
+              <motion.div
+                animate={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                className={classes.boxControl}
+              >
+                <Typography variant="h5">{title}</Typography>
+              </motion.div>
+            )}
+            {isPlay && (
+              <motion.div
+                variants={animationSound}
+                animate="visible"
+                initial="hidden"
+                className={classes.boxControl}
+              >
+                <BsVolumeDownFill />
+                <Slider
+                  onChange={handleChange}
+                  value={value}
+                  size="small"
+                  defaultValue={70}
+                  aria-label="Small"
+                  valueLabelDisplay="auto"
+                  sx={{ width: 130, mx: 1, color: "#CABBE9" }}
+                />
+                <BsVolumeUpFill />
+              </motion.div>
+            )}
+          </Box>
+        </motion.div>
       </Box>
     );
   }
