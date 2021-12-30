@@ -8,8 +8,8 @@ import Grid from "@mui/material/Grid";
 import { motion } from "framer-motion";
 import { makeStyles } from "@mui/styles";
 import { GrReactjs } from "react-icons/gr";
-import { AiFillHtml5, AiFillGithub } from "react-icons/ai";
-import { SiTypescript, SiPostgresql } from "react-icons/si";
+import { AiFillHtml5, AiFillGithub, AiOutlineConsoleSql } from "react-icons/ai";
+import { SiTypescript } from "react-icons/si";
 import {
   IoLogoCss3,
   IoLogoJavascript,
@@ -41,7 +41,7 @@ const LanguageAndTools: React.FC = () => {
     <IoLogoJavascript size="30" color="#F0DB4F" />,
     <SiTypescript size="30" color="#007acc" />,
     <IoLogoPython size="30" color="#4B8BBE" />,
-    <SiPostgresql size="30" color="#336791" />,
+    <AiOutlineConsoleSql size="30" color="#336791" />,
     <IoTerminal size="30" color="black" />,
     <AiFillGithub size="30" color="black" />,
     <IoLogoNodejs size="30" color="#3C873A" />,

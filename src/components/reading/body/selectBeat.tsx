@@ -63,7 +63,7 @@ const SelectBeat: React.FC = () => {
   };
 
   const endBeat = () => {
-    if (!(url in lofiBeat) || open) {
+    if (!(url in lofiBeat) && open) {
       const number = Math.floor(Math.random() * lofiBeat.length);
       setUrl(lofiBeat[number]);
     }

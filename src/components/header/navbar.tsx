@@ -47,7 +47,7 @@ const Nav: React.FC = () => {
       </Toolbar>
 
       <Toolbar sx={{ display: { xs: "flex", md: "none", sm: "flex" } }}>
-        <Typography sx={{ flexGrow: 1 }}>Nut</Typography>
+        <Typography sx={{ flexGrow: 1 }}>PORTFOLIO</Typography>
         <IconButton onClick={() => setIsOpen(!isOpen)}>
           <AiOutlineMenu />
         </IconButton>
