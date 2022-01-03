@@ -55,6 +55,10 @@ export class TimeLineCaseAllImpl {
         } else {
           total[parseInt(monthNo) - 1] += item.new_death;
         }
+        if (month[parseInt(monthNo) - 1].length < 7) {
+          month[parseInt(monthNo) - 1] =
+            month[parseInt(monthNo) - 1] + item.txn_date.slice(0, 4);
+        }
       });
     } else {
       const provinceData = this.DataTimeLineCaseByProvince.filter((item) => {
@@ -67,6 +71,10 @@ export class TimeLineCaseAllImpl {
           total[parseInt(monthNo) - 1] += item.new_case;
         } else {
           total[parseInt(monthNo) - 1] += item.new_death;
+        }
+        if (month[parseInt(monthNo) - 1].length < 7) {
+          month[parseInt(monthNo) - 1] =
+            month[parseInt(monthNo) - 1] + item.txn_date.slice(0, 4);
         }
       });
     }
