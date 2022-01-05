@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import PageTool from "../../header/pageTool";
 import ScrollTop from "./scrollTop";
+import DrawerItem from "../../header/drawerItem";
 
 import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Fab from "@mui/material/Fab";
 import { makeStyles } from "@mui/styles";
-import { AiOutlineArrowUp } from "react-icons/ai";
+import { AiOutlineArrowUp, AiOutlineMenu } from "react-icons/ai";
 
 const useStyles = makeStyles({
   root: {
@@ -28,7 +31,8 @@ const useStyles = makeStyles({
 
 const Nav: React.FC = () => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false); //Drawer
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -62,7 +66,23 @@ const Nav: React.FC = () => {
             </Box>
           </Modal>
         </Box>
-        <PageTool />
+        <Box sx={{ display: { xs: "flex", md: "none", sm: "flex" } }}>
+          <IconButton onClick={() => setIsOpen(!isOpen)}>
+            <AiOutlineMenu />
+          </IconButton>
+          <Drawer
+            open={isOpen}
+            onClose={() => setIsOpen(!isOpen)}
+            anchor="right"
+          >
+            <Box sx={{ width: 300 }}>
+              <DrawerItem />
+            </Box>
+          </Drawer>
+        </Box>
+        <Box sx={{ display: { xs: "none", md: "flex", sm: "none" } }}>
+          <PageTool />
+        </Box>
         <Box id="back-to-top-anchor" />
         <ScrollTop>
           <Fab color="secondary" size="medium">

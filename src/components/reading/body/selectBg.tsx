@@ -5,10 +5,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 import { makeStyles } from "@mui/styles";
-
-import animateBg from "../../../assets/images/reading/animate-bg.png";
-import narutoBg from "../../../assets/images/reading/naruto-bg.png";
-import sasukeBg from "../../../assets/images/reading/sasuke-bg.png";
+import { dataSet } from "../../../data/reading/dataSet";
 
 import { observer } from "mobx-react";
 import { DataReadingStoreImpl } from "../../../store/reading/dataReadingStore";
@@ -41,7 +38,7 @@ const useStyles = makeStyles({
   },
 });
 
-const pic = [animateBg, narutoBg, sasukeBg];
+const pic = dataSet.pic;
 
 const SelectBg: React.FC<SelectBgProps> = observer(({ store }) => {
   const classes = useStyles();
