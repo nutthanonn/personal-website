@@ -47,7 +47,7 @@ const useStyles = makeStyles({
 
 const StartFocus: React.FC<StartFocusProps> = observer(({ store }) => {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
   const [boxSound, setBoxSound] = useState<string[]>([]);
   const [bg, setBg] = useState<string>("");
   const [timeAll, setTimeAll] = useState<number>(store.Time);
@@ -55,7 +55,7 @@ const StartFocus: React.FC<StartFocusProps> = observer(({ store }) => {
   const [successBg, setSuccessBg] = useState<boolean>(false);
   const [play] = useSound(sucess);
 
-  const [openModal, setOpenModal] = React.useState(false);
+  const [openModal, setOpenModal] = useState<boolean>(false);
   const handleOpenModal = () => setOpenModal(true);
   const handleCloseModal = () => setOpenModal(false);
 
@@ -114,12 +114,7 @@ const StartFocus: React.FC<StartFocusProps> = observer(({ store }) => {
         Start focus
       </Button>
       {check && (
-        <Modal
-          open={openModal}
-          onClose={handleCloseModal}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
+        <Modal open={openModal} onClose={handleCloseModal}>
           <Box className={classes.boxModal}>
             <Typography
               sx={{ fontSize: { md: 20, sm: 15, xs: 10 } }}
