@@ -8,6 +8,7 @@ import { fetchDataTimeLineCaseByProvince } from "../../api/covidPageApi/timeLine
 configure({
   enforceActions: "never",
 });
+
 export class TimeLineCaseAllImpl {
   @observable DataTimeLineCaseAll: TimeLineCaseAllInterfaceProps[] = [];
   @observable

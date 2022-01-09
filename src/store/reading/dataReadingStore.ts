@@ -1,7 +1,5 @@
 import { makeObservable, action, observable } from "mobx";
-import aniamteBg from "../../assets/video/animate-study.mp4";
-import narutoBg from "../../assets/video/naruto-bg.mp4";
-import sasukeBg from "../../assets/video/sasuke-study.mp4";
+import { dataSet } from "../../data/reading/dataSet";
 
 export class DataReadingStoreImpl {
   @observable Time: number = 60;
@@ -45,7 +43,7 @@ export class DataReadingStoreImpl {
 
   @action
   get_bg() {
-    const animate = [aniamteBg, narutoBg, sasukeBg];
+    const animate = dataSet.video;
     return animate[this.Background];
   }
 
