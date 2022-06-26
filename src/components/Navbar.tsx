@@ -26,6 +26,7 @@ const NavCustom = styled.div`
   align-items: center;
   display: flex;
   justify-content: flex-end;
+  z-index: 10;
 `;
 
 const Github = styled(BsGithub)`
