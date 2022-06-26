@@ -32,10 +32,11 @@ export default Profile;
 
 const Container = styled.div`
   display: flex;
-  margin-top: 100px;
+  padding-top: 100px;
   @media (max-width: 850px) {
     flex-direction: column;
   }
+  max-height: 80vh;
 `;
 
 const LeftComponents = styled.aside`
@@ -46,4 +47,6 @@ const LeftComponents = styled.aside`
 const RightComponents = styled.aside`
   margin: 40px 70px;
   width: 70%;
+  position: relative;
+  overflow: auto;
 `;
