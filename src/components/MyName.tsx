@@ -1,9 +1,12 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Myname: React.FC = () => {
+  const navigate = useNavigate();
+
   function handleClickChangePath(event: React.MouseEvent) {
-    window.location.href = window.location.origin + "/profile";
+    navigate("profile");
   }
 
   return <Name onClick={handleClickChangePath}>Nutthanon</Name>;
