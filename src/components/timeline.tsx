@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { TimelineData } from '@/data/timeline';
+import React from "react";
+import styled from "styled-components";
+import { TimelineData } from "../data/timeline";
 
 const Timeline: React.FC = () => {
   return (
@@ -31,14 +31,16 @@ const Sesstion = styled.ul`
 `;
 
 const Detail = styled.li`
-  border-left: 2px solid rgba(0,0,0,0.4);
+  border-left: 2px solid rgba(0, 0, 0, 0.4);
   color: #eeeeee;
-  padding: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding: 0 0 20px 20px;
   position: relative;
 
   &:before {
     position: absolute;
-    content: '';
+    content: "";
     height: 12px;
     width: 12px;
     border-radius: 50%;

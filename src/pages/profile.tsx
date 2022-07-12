@@ -1,19 +1,13 @@
-import React from 'react';
-import Head from 'next/Head';
-import PersonalInformation from '@/components/PersonalInformation';
-import ProfileImg from '@/components/profileImg';
-import Timeline from '@/components/timeline';
-import styled from 'styled-components';
-import Navbar from '@/components/Navbar';
+import React from "react";
+import styled from "styled-components";
+import Navbar from "../components/Navbar";
+import ProfileImg from "../components/profileImg";
+import PersonalInformation from "../components/PersonalInformation";
+import Timeline from "../components/timeline";
 
 const Profile: React.FC = () => {
   return (
     <div>
-      <Head>
-        <title>nutthanon portfolio</title>
-        <meta name="description" content="nutthanon" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Navbar />
       <Container>
         <LeftComponents>
@@ -46,7 +40,8 @@ const LeftComponents = styled.aside`
 
 const RightComponents = styled.aside`
   margin: 40px 70px;
-  width: 70%;
+  width: 50%;
   position: relative;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 `;

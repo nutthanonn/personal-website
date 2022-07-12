@@ -1,11 +1,9 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
-import { useRouter } from 'next/router';
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
 const Myname: React.FC = () => {
-  const router = useRouter();
   function handleClickChangePath(event: React.MouseEvent) {
-    router.push('/profile');
+    window.location.href = window.location.origin + "/profile";
   }
 
   return <Name onClick={handleClickChangePath}>Nutthanon</Name>;
@@ -31,7 +29,7 @@ const Name = styled.p`
   text-transform: uppercase;
   font-size: 50px;
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -50,7 +48,7 @@ const Name = styled.p`
   }
 
   &:after {
-    content: ' (Click it!!)';
+    content: " (Click it!!)";
     font-size: 10px;
     color: rgba(0, 173, 181, 0.3);
   }

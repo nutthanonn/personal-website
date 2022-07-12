@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import picture from '../assets/fish.jpeg';
+import React from "react";
+import styled from "styled-components";
+import picture from "../assets/fish.jpeg";
 
 const ProfileImg: React.FC = () => {
-  return <ImgCustom src={picture.src} />;
+  return <ImgCustom src={picture} />;
 };
 
 export default ProfileImg;

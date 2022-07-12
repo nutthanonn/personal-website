@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { BsGithub } from 'react-icons/bs';
+import React from "react";
+import styled from "styled-components";
+import { BsGithub } from "react-icons/bs";
 
 const Navbar: React.FC = () => {
   return (
     <NavCustom>
       <Github
-        onClick={() => (window.location.href = 'https://github.com/nutthanonn')}
+        onClick={() => (window.location.href = "https://github.com/nutthanonn")}
       />
     </NavCustom>
   );
@@ -35,4 +35,11 @@ const Github = styled(BsGithub)`
   width: 30px;
   margin-right: 10px;
   cursor: pointer;
+  position: relative;
+  display: inline-block;
+
+  &:hover {
+    color: white;
+    transition: 1s;
+  }
 `;
